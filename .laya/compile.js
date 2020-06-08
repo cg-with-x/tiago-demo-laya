@@ -1,7 +1,9 @@
 // v1.2.1
 //是否使用IDE自带的node环境和插件，设置false后，则使用自己环境(使用命令行方式执行)
-const useIDENode = process.argv[0].indexOf("LayaAir") > -1 ? true : false;
-const useCMDNode = process.argv[1].indexOf("layaair2-cmd") > -1 ? true : false;
+const useIDENode = false;
+const useCMDNode = true;
+// const useIDENode = process.argv[0].indexOf("LayaAir") > -1 ? true : false;
+// const useCMDNode = process.argv[1].indexOf("layaair2-cmd") > -1 ? true : false;
 
 function useOtherNode(){
 	return useIDENode||useCMDNode;
