@@ -1,3 +1,4 @@
 bin/res/
 bin/fileconfig.json
 bin/version.json
+node_modules/

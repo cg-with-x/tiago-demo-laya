@@ -1,0 +1,21 @@
+{
+  "name": "tiago_laya_demo",
+  "version": "1.0.0",
+  "description": "Laya 互动游戏 SDK 接入 SDK",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cg-with-x/tiago-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cg-with-x/tiago-demo/issues"
+  },
+  "homepage": "https://github.com/cg-with-x/tiago-demo#readme",
+  "dependencies": {
+    "@byted-creative/tiago": "^0.0.41",
+    "layaair2-cmd": "^1.6.9"
+  }
+}
