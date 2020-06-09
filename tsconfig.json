@@ -2,9 +2,11 @@
   "compilerOptions": {
     "module": "es6",
     "target": "es6",
-    "noEmitHelpers": true,
     "sourceMap": false,
     "strict": true,
+    "typeRoots":[
+      "./node_modules/@byted-creative/tiago"
+    ]
   },
   // "exclude": [
   //   "node_modules"
