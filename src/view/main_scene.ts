@@ -1,3 +1,6 @@
+import tiago from "../../node_modules/@byted-creative/tiago/dist/index";
+import { tiagoModel } from "../model/tiago_model";
+
 export default class MainScene extends Laya.Scene {
   constructor(){
     super();
@@ -18,6 +21,19 @@ export default class MainScene extends Laya.Scene {
   // region ========================================  Laya 生命周期  ========================================
   onAwake(){
     super.onAwake();
+    tiago.init({
+      appId: ' ',
+      debug: true,
+    }).then(() => {
+      console.log('tiago init success.');
+      tiagoModel.tiagoInited = true;
+
+      // this.nodeFeature.active = true;
+      // this.nodeLoading.active = false;
+    }).catch(err => {
+      console.log(err);
+      // NOTE: 一般情况不会出错，我们会对错误情况做监控，游戏可以处理一些异常情况下的表现
+  });
   }
   // endregion
   // region ========================================  自定义方法  ========================================

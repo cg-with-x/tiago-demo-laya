@@ -1,6 +1,14 @@
-// import tiago from "@byted-creative/tiago"
 import MainScene from 'src/view/main_scene';
 import { Room } from '../../node_modules/@byted-creative/pvp-client/build/game_room/room';
+
+// const roomEvent: RoomEvent = {
+//     open: "open",
+//     message: 'message',
+// }
+enum roomEvent {
+    open = "open" // 游戏房间开始
+}
+
 // NOTE: 房间服务的事件抽出单独处理
 class RoomController {
     constructor() {
@@ -11,7 +19,7 @@ class RoomController {
     loadRoom(room: Room) {
         this.room = room;
         
-        room.on('open', () => {
+        room.on(roomEvent.open, () => {
             console.log('[room] 进入游戏成功!');
 
             // NOTE: 如果游戏场景比较复杂，可以预加载一下
