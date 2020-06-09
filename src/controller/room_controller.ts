@@ -1,5 +1,5 @@
-import MainScene from 'src/view/main_scene';
-import { Room } from '../../node_modules/@byted-creative/pvp-client/build/game_room/room';
+// import MainScene from 'src/view/main_scene';
+// import { Room } from '/@byted-creative/pvp-client/build/game_room/room';
 
 // const roomEvent: RoomEvent = {
 //     open: "open",
@@ -15,8 +15,8 @@ class RoomController {
         this.room = undefined;
     }
 
-    room?: Room;
-    loadRoom(room: Room) {
+    room?: any;
+    loadRoom(room: any) {
         this.room = room;
         
         room.on(roomEvent.open, () => {
@@ -32,7 +32,7 @@ class RoomController {
             // });
         });
 
-        room.on('message', ({ message }) => {
+        room.on('message', ({ message }:any ) => {
             console.log('[room] 接受到消息: ', message);
 
             // const scene = cc.director.getScene();
@@ -55,11 +55,11 @@ class RoomController {
             // }, 1000)
         });
 
-        room.on('error', (param) => {
+        room.on('error', (param:any) => {
             console.log('[room] 房间出错:', param);
         });
 
-        room.on('reconnecting', (param) => {
+        room.on('reconnecting', (param:any) => {
             console.log('[room] 重连中...', param);
         });
     }
