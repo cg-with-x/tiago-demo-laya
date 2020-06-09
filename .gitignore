@@ -1,6 +1,7 @@
-bin/res/
-bin/fileconfig.json
-bin/version.json
+bin/
+!bin/libs
+!bin/index.html
+!bin/index.js
 node_modules/
 src/ui/layaMaxUI.ts
 src/GameConfig.ts
