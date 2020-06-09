@@ -15,7 +15,9 @@ let workSpaceDir = useOtherNode() ? process.argv[2].replace("--gulpfile=", "").r
 const gulp = require(ideModuleDir + "gulp");
 const rollup = require(ideModuleDir + "rollup");
 const typescript = require(ideModuleDir + 'rollup-plugin-typescript2');//typescript2 plugin
-const glsl = require(ideModuleDir + 'rollup-plugin-glsl');
+const glsl = require('rollup-plugin-glsl');
+const commonjs = require('rollup-plugin-commonjs');
+const resolve = require('rollup-plugin-node-resolve');
 
 // 如果是发布时调用编译功能，增加prevTasks
 let prevTasks = "";
@@ -35,13 +37,15 @@ gulp.task("compile", prevTasks, function () {
 	return rollup.rollup({
 		input: workSpaceDir + '/src/Main.ts',
 		onwarn:(waring,warn)=>{
-			if(waring.code == "CIRCULAR_DEPENDENCY"){
-				console.log("warnning Circular dependency:");
-				console.log(waring);
-			}
+			// if(waring.code == "CIRCULAR_DEPENDENCY"){
+			// 	console.log("warnning Circular dependency:");
+			// 	console.log(waring);
+			// }
 		},
 		treeshake: false, //建议忽略
 		plugins: [
+			commonjs(),
+			resolve({ mainFields: ["jsnext", "preferBuiltins", "browser"] }),
 			typescript({
 				tsconfig:workSpaceDir + "/tsconfig.json",
 				check: true, //Set to false to avoid doing any diagnostic checks on the code

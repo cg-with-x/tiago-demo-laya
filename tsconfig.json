@@ -1,14 +1,18 @@
 {
-  "compilerOptions": {
+  "compilerOptions":  {
+    "charset": "utf-8",
     "module": "es6",
     "target": "es6",
-    "sourceMap": false,
     "strict": true,
-    "typeRoots":[
-      "./node_modules/@byted-creative/tiago"
-    ]
+    "locale": "zh-cn",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
   },
-  // "exclude": [
-  //   "node_modules"
-  // ]
+  "exclude": [
+    "node_modules"
+  ]
 }
