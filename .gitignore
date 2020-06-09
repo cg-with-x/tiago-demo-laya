@@ -2,3 +2,5 @@ bin/res/
 bin/fileconfig.json
 bin/version.json
 node_modules/
+src/ui/layaMaxUI.ts
+src/GameConfig.ts
