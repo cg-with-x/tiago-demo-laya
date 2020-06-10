@@ -22,14 +22,16 @@ export default class MainScene extends Laya.Scene {
   // region ========================================  自定义参数  ========================================
   // endregion
   // region ========================================  Laya 生命周期  ========================================
-  onAwake(){
+  async onAwake(){
     super.onAwake();
     // 初始化tiago
-    tiagoController.init();
+    await tiagoController.init();
 
+    
     this.getConfigBtn.on(Laya.Event.CLICK, this, this.onClickGetConfig);
     this.getUserInfoBtn.on(Laya.Event.CLICK, this, this.onClickGetUserInfo)
-    
+    this.matchBtn.on(Laya.Event.CLICK, this, this.onClickStartSingleMatch)
+    this.matchWithAIBtn.on(Laya.Event.CLICK, this, this.onClickStartSingleMatchAI)
   }
 
   onClickGetConfig(){

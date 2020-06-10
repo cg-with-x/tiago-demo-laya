@@ -7,19 +7,23 @@ class TiagoController{
    *
    * @memberof TiagoController
    */
-  init(){
-    tiago.init({
-      appId: ' ',
-      debug: true,
-    }).then(() => {
+  async init(){
+    try {
+      await tiago.init({
+        appId: 'tt5e982825c1b2d9a3',
+        debug: true,
+      })
+
       tiagoModel.tiagoInited = true;
       console.log('tiago init success.');
       tiagoModel.config = tiago.getConfig();
       console.log('tiagoModel.config', tiagoModel.config);
-    }).catch((err:any)=> {
+      
+    } catch(err){
       console.log(err);
       // NOTE: 一般情况不会出错，我们会对错误情况做监控，游戏可以处理一些异常情况下的表现
-    });
+    }
+    
   }
 
 
