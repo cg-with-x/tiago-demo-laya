@@ -1,5 +1,6 @@
 import { Room } from '@byted-creative/pvp-client/build/game_room/room';
 import { tiagoModel } from '~/model/tiago_model';
+import tiago from '@byted-creative/tiago';
 
 /**
  * 此为tiago定义的房间事件。
@@ -20,7 +21,17 @@ class RoomController {
   constructor() {
     tiagoModel.room = undefined;
   }
+  RoomInited = false;
 
+  init(result: any){
+    // NOTE: 随后可以加入游戏房间
+    const room = tiago.joinGameRoom({
+        roomNum: result.roomNum,
+    });
+
+    // 交由 room_manager 进行管理
+    this.loadRoom(room);
+  }
   loadRoom(room: Room) {
     tiagoModel.room = room;
     

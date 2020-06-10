@@ -61,7 +61,7 @@ class TiagoController{
 
   startSingleMatch(needAI: boolean){
     const match = tiago.startSingleMatch({
-      isAutoAppendAI: true, // 支持 AI 逻辑
+      isAutoAppendAI: needAI, // 支持 AI 逻辑
     });
     // TODO 字符串变为枚举类型，并且需要根据对应类型，定义result类型。
     match.on('match-success', result => {
@@ -76,6 +76,7 @@ class TiagoController{
       const room = tiago.joinGameRoom({
           roomNum: result.roomNum,
       });
+
 
       // 交由 room_manager 进行管理
       roomController.loadRoom(room);
