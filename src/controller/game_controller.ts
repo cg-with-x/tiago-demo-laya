@@ -6,8 +6,8 @@ import { mainScene } from '~/view/main_scene';
 class GameController{
   isGaming = false;
   onClickStopGame() {
-      if (!tiagoModel.room) return
-      tiagoModel.room.send(JSON.stringify({
+      if (!roomController.room) return
+      roomController.room.send(JSON.stringify({
           event: 'bye',
       }));
       roomController.leave();
@@ -15,9 +15,9 @@ class GameController{
   }
 
   onClickTalk() {
-    if (!tiagoModel.room) return
+    if (!roomController.room) return
      
-    tiagoModel.room.send(JSON.stringify({
+    roomController.room.send(JSON.stringify({
         event: 'talk',
         data: Math.random() * 100,
     }));
@@ -25,8 +25,8 @@ class GameController{
   }
 
   onClickReconnect() {
-    if (tiagoModel.room) {
-        tiagoModel.room.reconnect();
+    if (roomController.room) {
+        roomController.room.reconnect();
     }
   }
 
