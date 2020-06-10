@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Laya 互动游戏 SDK 接入 SDK",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "compile": "npx layaair2-cmd compile"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cg-with-x/tiago-demo.git"
