@@ -21,7 +21,7 @@ class RoomController {
   constructor() {
     tiagoModel.room = undefined;
   }
-  RoomInited = false;
+  roomInited = false;
 
   init(result: any){
     // NOTE: 随后可以加入游戏房间
