@@ -1,3 +1,5 @@
+import { roomController } from '~/controller/room_controller';
+
 export default class GameScene extends Laya.Scene {
   constructor(){
     super();
@@ -14,6 +16,15 @@ export default class GameScene extends Laya.Scene {
   // region ========================================  Laya 生命周期  ========================================
   async onAwake(){
     super.onAwake();
+  }
+
+  onEnable(){
+    super.onEnable();
+    if (roomController.room) {
+      roomController.room.send(JSON.stringify({
+        event: 'ready',
+      }));
+    }
   }
 
   // endregion

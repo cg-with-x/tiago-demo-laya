@@ -13,8 +13,6 @@ class TiagoModel{
   twoPlayersInfo!: PlayerInfo;
   
   config!: Config;
-
-  room?: Room;
   
   environment: any = "";
 }

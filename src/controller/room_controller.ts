@@ -2,6 +2,7 @@ import { Room } from '@byted-creative/pvp-client/build/game_room/room';
 import { tiagoModel } from '~/model/tiago_model';
 import tiago from '@byted-creative/tiago';
 import { gameController } from './game_controller';
+import { gameScene } from '~/view/game_scene';
 
 /**
  * 此为tiago定义的房间事件。
@@ -20,10 +21,11 @@ enum roomEvent {
 // NOTE: 房间服务的事件抽出单独处理
 class RoomController {
   constructor() {
-    tiagoModel.room = undefined;
+    this.room = undefined;
   }
   roomInited = false;
 
+  room?: Room;
   init(result: any){
     // NOTE: 随后可以加入游戏房间
     const room = tiago.joinGameRoom({
@@ -34,7 +36,7 @@ class RoomController {
     this.loadRoom(room);
   }
   loadRoom(room: Room) {
-    tiagoModel.room = room;
+    this.room = room;
     
     room.on(roomEvent.open, () => {
       console.log('[room] 进入游戏成功!');
@@ -47,6 +49,7 @@ class RoomController {
       //         }));
       //     }
       // });
+      gameScene.loadOpen();
     });
 
     room.on(roomEvent.message, ({ message } ) => {
@@ -76,9 +79,9 @@ class RoomController {
   }
 
   leave() {
-    if (tiagoModel.room) {
-      tiagoModel.room.close();
-      tiagoModel.room = undefined;
+    if (this.room) {
+      this.room.close();
+      this.room = undefined;
     }
   }
 }
