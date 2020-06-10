@@ -1,6 +1,7 @@
 import { Room } from '@byted-creative/pvp-client/build/game_room/room';
 import { tiagoModel } from '~/model/tiago_model';
 import tiago from '@byted-creative/tiago';
+import { gameController } from './game_controller';
 
 /**
  * 此为tiago定义的房间事件。
@@ -48,27 +49,24 @@ class RoomController {
       // });
     });
 
-    room.on(roomEvent.message, ({ message }:any ) => {
-      console.log('[room] 接受到消息: ', message);
-
-      // const scene = cc.director.getScene();
-      // if (scene.name === 'game') {
-
-      //     // NOTE: 也可以使用 Event 方式传递
-      //     const canvas = scene.getChildByName('Canvas');
-      //     if (canvas) {
-      //         canvas.getComponent('game').onRoomMessage(message);
-      //     }
-      // }
+    room.on(roomEvent.message, ({ message } ) => {
+      if (gameController.isGaming){
+        if (typeof(message) === "string"){
+          console.log('[room] 接受到消息: ', message);
+          gameController.onRoomMessage(message);
+        } else {
+          console.error('[room] 接受到消息格式错误 ', message);
+        }
+      }
     });
 
     room.on(roomEvent.close, () => {
       console.log('[room] 房间关闭!');
 
       // NOTE: 根据需要进行重新连接
-      // setTimeout(() => {
+      // Laya.timer.once(1000, this, () => {
       //     room.reconnect();
-      // }, 1000)
+      // })
     });
 
     room.on(roomEvent.error, (param:any) => {

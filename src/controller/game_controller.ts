@@ -4,6 +4,7 @@ import { roomController } from './room_controller';
 import { mainScene } from '~/view/main_scene';
 
 class GameController{
+  isGaming = false;
   onClickStopGame() {
       if (!tiagoModel.room) return
       tiagoModel.room.send(JSON.stringify({
