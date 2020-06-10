@@ -1,5 +1,11 @@
 import { Match } from '@byted-creative/tiago/dist/match';
 
+export enum matchEvents{
+    "match-success" = "match-success",
+    "create-game-room-success" = "create-game-room-success",
+    "error" = "error"
+}
+
 export interface MatchEvents {
     "match-success": undefined; 
     

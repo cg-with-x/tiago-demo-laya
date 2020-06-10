@@ -1,6 +1,7 @@
 import tiago from '@byted-creative/tiago';
 import { tiagoModel } from '~/model/tiago_model';
 import { roomController } from './room_controller';
+import { matchEvents } from '~/interface/match_inter';
 
 class TiagoController{
   tiagoInited: boolean = false;
@@ -64,25 +65,20 @@ class TiagoController{
       isAutoAppendAI: needAI, // 支持 AI 逻辑
     });
     // TODO 字符串变为枚举类型，并且需要根据对应类型，定义result类型。
-    match.on('match-success', result => {
+    match.on(matchEvents["match-success"], result => {
       // 获得匹配成功后的用户信息
       console.log(result);
+
     });
     
-    match.on('create-game-room-success', result => {
+    match.on(matchEvents["create-game-room-success"], result => {
       console.log(result);
 
-      // NOTE: 随后可以加入游戏房间
-      const room = tiago.joinGameRoom({
-          roomNum: result.roomNum,
-      });
-
-
       // 交由 room_manager 进行管理
-      roomController.loadRoom(room);
+      roomController.init(result);
     });
     
-    match.on('error', error => {
+    match.on(matchEvents.error, error => {
       console.log(error);
     });
   }
