@@ -10,9 +10,9 @@ class TiagoController{
    *
    * @memberof TiagoController
    */
-  async init(){
+  init(){
     try {
-      await tiago.init({
+      tiago.init({
         appId: 'tt5e982825c1b2d9a3',
         debug: true,
       })
