@@ -8,11 +8,11 @@ import { PlayerInfo, Config } from '@byted-creative/tiago/dist/interface';
 class TiagoModel{
   tiagoInited: boolean = false;
 
-  selfUserInfo?: PlayerInfo;
+  selfUserInfo!: PlayerInfo;
 
-  twoPlayersInfo?: PlayerInfo;
+  twoPlayersInfo!: PlayerInfo;
   
-  config?: Config;
+  config!: Config;
 
   
   environment: any = "";

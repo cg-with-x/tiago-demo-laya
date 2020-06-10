@@ -7,4 +7,5 @@
     "tiago"
   ],
   "editor.foldingStrategy": "indentation",
+  "typescript.tsdk": "node_modules/typescript/lib",
 }

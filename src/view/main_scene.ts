@@ -34,17 +34,17 @@ export default class MainScene extends Laya.Scene {
 
   onClickGetConfig(){
 
-    if (tiagoModel.config?.currentScene === tiago.BUSINESS_SCENE.LiveRoom) {
+    if (tiagoModel.config.currentScene === tiago.BUSINESS_SCENE.LiveRoom) {
         // 当前是直播场景
-        const params = tiagoModel.config?.scene[tiagoModel.config?.currentScene]
+        const params = tiagoModel.config.scene[tiagoModel.config.currentScene]
 
-        if (params?.isNewcomer) {  
+        if (params && params.isNewcomer) {  
             // NOTE: 补充新手逻辑
             console.log('新手首次加入游戏');
         }
         
         // NOTE: 针对直播场景，调整使用直播专用的 UI，或处理其他特殊逻辑
-    } else if (tiagoModel.config?.currentScene === tiago.BUSINESS_SCENE.Wonderland) {
+    } else if (tiagoModel.config.currentScene === tiago.BUSINESS_SCENE.Wonderland) {
         // 当前是 W 场景
     }
   }
