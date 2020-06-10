@@ -3,7 +3,7 @@ import { mainScene } from "./view/main_scene";
 class Main {
 	constructor() {
     //根据IDE设置初始化引擎		
-    // @ts-ignore Laya typing 过不去ts严格模式
+    // @ts-ignore Laya typing 存在无法过ts严格模式的问题
 		if (window["Laya3D"]) Laya3D.init(GameConfig.width, GameConfig.height);
 		else Laya.init(GameConfig.width, GameConfig.height, Laya["WebGL"]);
     Laya["Physics"] && Laya["Physics"].enable();
@@ -33,7 +33,7 @@ class Main {
 
 	onConfigLoaded(): void {
 		//加载IDE指定的场景
-		// GameConfig.startScene && Laya.Scene.open(GameConfig.startScene);
+		// 无需进入到IDE中查看脚本引用。为了方便阅读，demo自己包装了场景加载方式
 		mainScene.loadOpen();
 	}
 }
