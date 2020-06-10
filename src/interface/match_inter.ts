@@ -2,27 +2,8 @@ import { Match } from '@byted-creative/tiago/dist/match';
 
 export interface MatchEvents {
     "match-success": undefined; 
-    // open: undefined;
-    // message: {
-    //     message: string | ArrayBuffer;
-    // };
-    // close: undefined;
-    // error: {
-    //     code: number;
-    //     message?: string;
-    //     errMsg?: string;
-    // };
-    // notifyRoomPrepared: undefined;
-    // reconnecting: undefined;
+    
 }
-type T0 = Exclude<MatchEvents, "match-success">;  
-interface Todo {
-    title: string;
-    description: string;
-    completed: boolean;
-}
-
-type TodoPreview = Omit<Todo, 'title' | 'completed'>;
 
 type Ma = Omit<Match, "on" | "off" | "once" | "emit" | "removeAllListeners">;
 
