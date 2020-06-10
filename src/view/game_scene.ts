@@ -4,6 +4,10 @@ export default class GameScene extends Laya.Scene {
     this.url = "game_scene.json"
   }
   // region ========================================  Laya UI组件  ========================================
+  serverTime!: Laya.Label;
+  attackBtn!: Laya.Button;
+  endRoomBtn!: Laya.Button;
+  reconnectBtn!: Laya.Button;
   // endregion
   // region ========================================  自定义参数  ========================================
   // endregion
