@@ -35,85 +35,21 @@ export default class MainScene extends Laya.Scene {
   }
 
   onClickGetConfig(){
-
-    if (tiagoModel.config.currentScene === tiago.BUSINESS_SCENE.LiveRoom) {
-        // 当前是直播场景
-        const params = tiagoModel.config.scene[tiagoModel.config.currentScene]
-
-        if (params && params.isNewcomer) {  
-            // NOTE: 补充新手逻辑
-            console.log('新手首次加入游戏');
-        }
-        
-        // NOTE: 针对直播场景，调整使用直播专用的 UI，或处理其他特殊逻辑
-    } else if (tiagoModel.config.currentScene === tiago.BUSINESS_SCENE.Wonderland) {
-        // 当前是 W 场景
-    }
+    tiagoController.getConfig();
   }
 
 
   onClickGetUserInfo(){
-    const info = tiago.getUserInfo();
-    console.log(info);
-
-    // NOTE: 这里只是简单的保存下来
-    tiagoModel.selfUserInfo = info;
-    // this.renderSelf(dataManager.selfUserInfo);
+    tiagoController.getUserInfo();
   }
 
   onClickStartSingleMatch() {
-    const match = tiago.startSingleMatch();
-
-    match.on('match-success', result => {
-        // 获得匹配成功后的用户信息
-        console.log(result);
-    });
-    
-    match.on('create-game-room-success', (result) => {
-        console.log(result);
-
-        // NOTE: 随后可以加入游戏房间
-        const room = tiago.joinGameRoom({
-            roomNum: result.roomNum,
-        });
-        
-        // NOTE: 加入房间连麦
-        // tiago.joinRTCForGameRoom(room);
-
-        // 交由 room_manager 进行管理
-        roomController.loadRoom(room);
-    });
-    
-    match.on('error', error => {
-        console.log(error);
-    });
+    tiagoController.startSingleMatch(false);
   }
+  
   onClickStartSingleMatchAI() {
-    const match = tiago.startSingleMatch({
-      isAutoAppendAI: true, // 支持 AI 逻辑
-    });
-
-    match.on('match-success', result => {
-      // 获得匹配成功后的用户信息
-      console.log(result);
-    });
-    
-    match.on('create-game-room-success', result => {
-      console.log(result);
-
-      // NOTE: 随后可以加入游戏房间
-      const room = tiago.joinGameRoom({
-          roomNum: result.roomNum,
-      });
-
-      // 交由 room_manager 进行管理
-      roomController.loadRoom(room);
-    });
-    
-    match.on('error', error => {
-      console.log(error);
-    });
-} 
+    tiagoController.startSingleMatch(true)
+  } 
   
   // endregion
   // region ========================================  自定义方法  ========================================

@@ -6,7 +6,6 @@ import { PlayerInfo, Config } from '@byted-creative/tiago/dist/interface';
  * @class TiagoModel
  */
 class TiagoModel{
-  tiagoInited: boolean = false;
 
   selfUserInfo!: PlayerInfo;
 
