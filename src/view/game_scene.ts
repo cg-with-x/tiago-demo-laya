@@ -14,7 +14,7 @@ export default class GameScene extends Laya.Scene {
   // region ========================================  自定义参数  ========================================
   // endregion
   // region ========================================  Laya 生命周期  ========================================
-  async onAwake(){
+  onAwake(){
     super.onAwake();
   }
 
