@@ -51,12 +51,9 @@ class RoomController {
 
     room.on(roomEvent.message, ({ message } ) => {
       if (gameController.isGaming){
-        if (typeof(message) === "string"){
-          console.log('[room] 接受到消息: ', message);
-          gameController.onRoomMessage(message);
-        } else {
-          console.error('[room] 接受到消息格式错误 ', message);
-        }
+        console.log('[room] 接受到消息: ', message);
+        gameController.onRoomMessage(message);
+      
       }
     });
 

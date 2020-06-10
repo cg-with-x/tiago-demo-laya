@@ -30,38 +30,39 @@ class GameController{
     }
   }
 
-  onRoomMessage(messageStr: string) {
-      // NOTE: 消息体的内容是开发者自己定义的，这里的代码只是一种示例
-      // NOTE: 开发者可以根据自己的房间脚本和协议，实现自身游戏的逻辑
-      const message = JSON.parse(messageStr);
+  onRoomMessage(messageStr: string|ArrayBuffer) {
+    // NOTE: 消息体的内容是开发者自己定义的，这里的代码只是一种示例
+    // NOTE: 开发者可以根据自己的房间脚本和协议，实现自身游戏的逻辑
+    if (typeof(messageStr) !== "string") return;
+    const message = JSON.parse(messageStr);
 
-      if (message.length) {
-          message.forEach(({ event, data}: {event:string, data:any}) => {
-              switch (event) {
-                  case 'game-start':
-                      break;
-                  case 'environment':
-                    //   dataManager.environment = data;
-                      break;
-                  case 'info':
-                    //   dataManager.twoPlayersInfo = data;
-                      this.renderPlayers();
-                      break;
-                  case 'server-time':
-                    //   this.labelServerTime.string = `${dataManager.environment}: ${data}`;
-                      break;
-                  case 'talk':
-                      // this.renderTalk(data);
-                      break;
-                  case 'game-over':
-                      // tiagoModel.leave();
-                      // cc.director.loadScene('start');
-                      break;
-                  default:
-                      break;
-              }
-          })
-      }
+    if (message.length) {
+      message.forEach(({ event, data}: {event:string, data:any}) => {
+          switch (event) {
+              case 'game-start':
+                  break;
+              case 'environment':
+                //   dataManager.environment = data;
+                  break;
+              case 'info':
+                //   dataManager.twoPlayersInfo = data;
+                  this.renderPlayers();
+                  break;
+              case 'server-time':
+                //   this.labelServerTime.string = `${dataManager.environment}: ${data}`;
+                  break;
+              case 'talk':
+                  // this.renderTalk(data);
+                  break;
+              case 'game-over':
+                  // tiagoModel.leave();
+                  // cc.director.loadScene('start');
+                  break;
+              default:
+                  break;
+          }
+      })
+    }
   }
 
   renderPlayers() {
