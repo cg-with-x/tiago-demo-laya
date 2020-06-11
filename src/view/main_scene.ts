@@ -2,7 +2,7 @@ import { tiagoController } from '~/controller/tiago_controller';
 import tiago from '@byted-creative/tiago';
 import { tiagoModel } from '~/model/tiago_model';
 import { roomController } from '~/controller/room_controller';
-import { avatarImg } from '~/util/avatarImg';
+import { loadAvatarImg } from '~/util/avatarImg';
 
 
 export default class MainScene extends Laya.Scene {
@@ -77,10 +77,13 @@ export default class MainScene extends Laya.Scene {
   }
 
   public renderAvatar(){
-    // TODO 小游戏头像域名问题
-    // avatarImg(tiagoModel.selfUserInfo.avatarUrl);
-    // this.avatar.texture = avatarImg(tiagoModel.selfUserInfo.avatarUrl);
-    this.avatar.skin = tiagoModel.selfUserInfo.avatarUrl;
+    // 加载小程序头条
+    loadAvatarImg(tiagoModel.selfUserInfo.avatarUrl).then((result)=>{
+      // this.avatar.texture = result;
+      // this.avatar.graphics.drawImage(result)
+      this.avatar.skin = tiagoModel.selfUserInfo.avatarUrl;
+    });
+
   }
   // endregion
 }
