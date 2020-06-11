@@ -77,7 +77,10 @@ export default class MainScene extends Laya.Scene {
   }
 
   public renderAvatar(){
-    this.avatar.texture = avatarImg(tiagoModel.selfUserInfo.avatarUrl);
+    // TODO 小游戏头像域名问题
+    // avatarImg(tiagoModel.selfUserInfo.avatarUrl);
+    // this.avatar.texture = avatarImg(tiagoModel.selfUserInfo.avatarUrl);
+    this.avatar.skin = tiagoModel.selfUserInfo.avatarUrl;
   }
   // endregion
 }
