@@ -48,9 +48,29 @@ export default class GameScene extends Laya.Scene {
     );
   }
 
-  public renderServerTime(){
+  renderServerTime(){
     this.serverTime.text = `${gameModel.environment}: ${gameModel.serverTime}`;
   }
+
+  renderPlayers() {
+    if (gameModel.twoPlayersInfo) {
+    //     const [ playerA, playerB ] = tiagoModel.twoPlayersInfo;
+
+    //     if (playerA) {
+    //         this.playerAOpenId = playerA.openId;
+    //         const name = playerA.isAI ? `AI: ${playerA.nickName}` : playerA.nickName;
+    //         this.labelPlayerANickName.string = name;
+    //         utils.renderAvatar(this.spritePlayerAAvatar, playerA.avatarUrl);
+    //     }
+
+    //     if (playerB) {
+    //         this.playerBOpenId = playerB.openId;
+    //         const name = playerB.isAI ? `AI: ${playerB.nickName}` : playerB.nickName;
+    //         this.labelPlayerBNickName.string = name;
+    //         utils.renderAvatar(this.spritePlayerBAvatar, playerB.avatarUrl);
+    //     }
+    }
+}
   // endregion
 }
 
