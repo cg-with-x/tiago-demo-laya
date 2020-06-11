@@ -2,6 +2,9 @@ import { tiagoModel } from '~/model/tiago_model';
 import tiago from '@byted-creative/tiago';
 import { roomController } from './room_controller';
 import { mainScene } from '~/view/main_scene';
+import { gameModel } from '~/model/game_model';
+import { tiagoController } from './tiago_controller';
+import { gameScene } from '~/view/game_scene';
 
 class GameController{
   isGaming = false;
@@ -38,29 +41,29 @@ class GameController{
 
     if (message.length) {
       message.forEach(({ event, data}: {event:string, data:any}) => {
-          switch (event) {
-              case 'game-start':
-                  break;
-              case 'environment':
-                //   dataManager.environment = data;
-                  break;
-              case 'info':
-                //   dataManager.twoPlayersInfo = data;
-                  this.renderPlayers();
-                  break;
-              case 'server-time':
-                //   this.labelServerTime.string = `${dataManager.environment}: ${data}`;
-                  break;
-              case 'talk':
-                  // this.renderTalk(data);
-                  break;
-              case 'game-over':
-                  // tiagoModel.leave();
-                  // cc.director.loadScene('start');
-                  break;
-              default:
-                  break;
-          }
+        switch (event) {
+          case 'game-start':
+            break;
+          case 'environment':
+            gameModel.environment = data;
+            break;
+          case 'info':
+            gameModel.twoPlayersInfo = data;
+            this.renderPlayers();
+            break;
+          case 'server-time':
+            //   this.labelServerTime.string = `${dataManager.environment}: ${data}`;
+            break;
+          case 'talk':
+            this.renderTalk(data);
+            break;
+          case 'game-over':
+            roomController.leave();
+            mainScene.loadOpen();
+            break;
+          default:
+              break;
+        }
       })
     }
   }

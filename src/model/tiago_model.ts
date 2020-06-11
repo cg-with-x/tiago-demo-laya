@@ -9,11 +9,8 @@ import { Room } from '@byted-creative/pvp-client/build/game_room/room';
 class TiagoModel{
 
   selfUserInfo!: PlayerInfo;
+ 
+  config!: Config; 
 
-  twoPlayersInfo!: PlayerInfo;
-  
-  config!: Config;
-  
-  environment: any = "";
 }
 export const tiagoModel = new TiagoModel();
