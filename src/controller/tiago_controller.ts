@@ -2,6 +2,7 @@ import tiago from '@byted-creative/tiago';
 import { tiagoModel } from '~/model/tiago_model';
 import { roomController } from './room_controller';
 import { matchEvents } from '~/interface/match_inter';
+import { mainScene } from '~/view/main_scene';
 
 class TiagoController{
   tiagoInited: boolean = false;
@@ -56,7 +57,7 @@ class TiagoController{
 
     // NOTE: 这里只是简单的保存下来
     tiagoModel.selfUserInfo = info;
-    // this.renderSelf(dataManager.selfUserInfo);
+    mainScene.renderAvatar();
   }
   
 

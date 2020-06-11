@@ -2,6 +2,7 @@ import { tiagoController } from '~/controller/tiago_controller';
 import tiago from '@byted-creative/tiago';
 import { tiagoModel } from '~/model/tiago_model';
 import { roomController } from '~/controller/room_controller';
+import { avatarImg } from '~/util/avatarImg';
 
 
 export default class MainScene extends Laya.Scene {
@@ -18,6 +19,10 @@ export default class MainScene extends Laya.Scene {
   matchBtn!: Laya.Button;
   // 按钮: 1v1 匹配 (带AI)
   matchWithAIBtn!: Laya.Button;
+  // 用户头像
+  avatar!: Laya.Image;
+  // 用户昵称
+  nickName!: Laya.Label;
   // endregion
   // region ========================================  自定义参数  ========================================
   // endregion
@@ -69,6 +74,10 @@ export default class MainScene extends Laya.Scene {
         this.open(closeOther, onOpenedParam);
       })
     );
+  }
+
+  public renderAvatar(){
+    this.avatar.texture = avatarImg(tiagoModel.selfUserInfo.avatarUrl);
   }
   // endregion
 }
