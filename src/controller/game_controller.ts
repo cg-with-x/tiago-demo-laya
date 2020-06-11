@@ -52,7 +52,8 @@ class GameController{
             this.renderPlayers();
             break;
           case 'server-time':
-            //   this.labelServerTime.string = `${dataManager.environment}: ${data}`;
+            gameModel.serverTime = data;
+            gameScene.renderServerTime();
             break;
           case 'talk':
             this.renderTalk(data);

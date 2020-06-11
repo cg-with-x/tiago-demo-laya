@@ -1,4 +1,5 @@
 import { roomController } from '~/controller/room_controller';
+import { gameModel } from '~/model/game_model';
 
 export default class GameScene extends Laya.Scene {
   constructor(){
@@ -45,6 +46,10 @@ export default class GameScene extends Laya.Scene {
         this.open(closeOther, onOpenedParam);
       })
     );
+  }
+
+  public renderServerTime(){
+    this.serverTime.text = `${gameModel.environment}: ${gameModel.serverTime}`;
   }
   // endregion
 }

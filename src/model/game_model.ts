@@ -9,6 +9,8 @@ class GameModel{
 
   twoPlayersInfo!: PlayerInfo;
   
-  environment: any = "";
+  environment = "";
+
+  serverTime = "";
 }
 export const gameModel = new GameModel();
