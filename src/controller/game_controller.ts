@@ -50,7 +50,7 @@ class GameController{
             break;
           case 'info':
             gameModel.twoPlayersInfo = data;
-            this.renderPlayers();
+            gameScene.renderPlayers();
             break;
           case 'server-time':
             gameModel.serverTime = data;
@@ -70,25 +70,6 @@ class GameController{
     }
   }
 
-  renderPlayers() {
-      // if (tiagoModel.twoPlayersInfo) {
-      //     const [ playerA, playerB ] = tiagoModel.twoPlayersInfo;
-
-      //     if (playerA) {
-      //         this.playerAOpenId = playerA.openId;
-      //         const name = playerA.isAI ? `AI: ${playerA.nickName}` : playerA.nickName;
-      //         this.labelPlayerANickName.string = name;
-      //         utils.renderAvatar(this.spritePlayerAAvatar, playerA.avatarUrl);
-      //     }
-
-      //     if (playerB) {
-      //         this.playerBOpenId = playerB.openId;
-      //         const name = playerB.isAI ? `AI: ${playerB.nickName}` : playerB.nickName;
-      //         this.labelPlayerBNickName.string = name;
-      //         utils.renderAvatar(this.spritePlayerBAvatar, playerB.avatarUrl);
-      //     }
-      // }
-  }
 
   renderTalk({ event, data }: {event:string, data:any}) {
       // const tip = `战斗力 +${data}`;

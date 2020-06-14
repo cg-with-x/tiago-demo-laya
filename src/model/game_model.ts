@@ -7,7 +7,7 @@ import { PlayerInfo } from '@byted-creative/tiago/dist/interface';
  */
 class GameModel{
 
-  twoPlayersInfo!: PlayerInfo;
+  twoPlayersInfo!: PlayerInfo[];
   
   environment = "";
 

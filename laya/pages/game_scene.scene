@@ -1,12 +1,18 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":6,
+    "selectedBox":14,
+    "selecteID":16,
     "searchKey":"Scene",
+    "referenceLines":[
+        {
+            "value":-1744,
+            "type":0,
+            "id":1
+        }],
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
-    "maxID":10,
+    "maxID":18,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -77,14 +83,13 @@
             "props":{"y":210,"x":183,"width":384,"skin":"comp/img_bg3.png","sizeGrid":"10,12,10,14","height":200},
             "nodeParent":2,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,severTime",
                     "props":{"y":100,"var":"severTime","valign":"middle","top":100,"text":"N/A","fontSize":32,"color":"#222222","centerX":0,"align":"center"},
@@ -98,7 +103,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label",
                     "props":{"y":43,"x":112,"text":"服务器时间","fontSize":32,"color":"#222222"},
@@ -108,6 +112,118 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":9,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,playerA",
+            "props":{"y":516,"x":132,"var":"playerA"},
+            "nodeParent":2,
+            "label":"playerA",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":12,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "searchKey":"Label,tipA",
+                    "props":{"y":0,"x":60,"var":"tipA","text":"提示","fontSize":40,"color":"#222222","align":"center"},
+                    "nodeParent":12,
+                    "label":"tipA",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":13,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,avatarA",
+                    "props":{"y":52,"width":200,"var":"avatarA","skin":"comp/image.png","height":200},
+                    "nodeParent":12,
+                    "label":"avatarA",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "searchKey":"Label,nicknameA",
+                    "props":{"y":272,"x":60,"var":"nicknameA","text":"昵称","fontSize":40,"color":"#222222","align":"center"},
+                    "nodeParent":12,
+                    "label":"nicknameA",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":11,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,playerB",
+            "props":{"y":516,"x":427,"var":"playerB"},
+            "nodeParent":2,
+            "label":"playerB",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":14,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "searchKey":"Label,tipB",
+                    "props":{"y":0,"x":60,"var":"tipB","text":"昵称","fontSize":40,"color":"#222222","align":"center"},
+                    "nodeParent":14,
+                    "label":"tipB",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,avatarB",
+                    "props":{"y":52,"width":200,"var":"avatarB","skin":"comp/image.png","height":200},
+                    "nodeParent":14,
+                    "label":"avatarB",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":15,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "searchKey":"Label,nicknameB",
+                    "props":{"y":272,"x":60,"var":"nicknameB","text":"昵称","fontSize":40,"color":"#222222","align":"center"},
+                    "nodeParent":14,
+                    "label":"nicknameB",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
                     "child":[
                         ]
                 }]

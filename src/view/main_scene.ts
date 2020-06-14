@@ -22,7 +22,7 @@ export default class MainScene extends Laya.Scene {
   // 用户头像
   avatar!: Laya.Image;
   // 用户昵称
-  nickName!: Laya.Label;
+  nickname!: Laya.Label;
   // endregion
   // region ========================================  自定义参数  ========================================
   // endregion
@@ -79,9 +79,10 @@ export default class MainScene extends Laya.Scene {
   public renderAvatar(){
     // 加载小程序头条
     loadAvatarImg(tiagoModel.selfUserInfo.avatarUrl).then((result)=>{
-      //@ts-ignore
-      this.avatar._bitmap.source= result;
+      // @ts-ignore 头像加载的skin已添加进入Laya自带的loader流，一般情况无需使用Laya的私有方法
+      // this.avatar._bitmap.source= result;
       this.avatar.skin = tiagoModel.selfUserInfo.avatarUrl;
+      this.nickname.text = tiagoModel.selfUserInfo.nickName;
     });
 
   }
