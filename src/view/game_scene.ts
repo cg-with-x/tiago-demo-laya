@@ -1,5 +1,7 @@
 import { roomController } from '~/controller/room_controller';
 import { gameModel } from '~/model/game_model';
+import { mainScene } from './main_scene';
+import { gameController } from '~/controller/game_controller';
 
 export default class GameScene extends Laya.Scene {
   constructor(){
@@ -26,6 +28,9 @@ export default class GameScene extends Laya.Scene {
         event: 'ready',
       }));
     }
+    this.endRoomBtn.on(Laya.Event.CLICK, this, gameController.onClickEndGame);
+    this.attackBtn.on(Laya.Event.CLICK, this, gameController.onClickTalkAttack);
+    this.reconnectBtn.on(Laya.Event.CLICK, this, gameController.onClickReconnect)
   }
 
   // endregion

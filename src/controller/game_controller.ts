@@ -8,7 +8,8 @@ import { gameScene } from '~/view/game_scene';
 
 class GameController{
   isGaming = false;
-  onClickStopGame() {
+  
+  onClickEndGame() {
       if (!roomController.room) return
       roomController.room.send(JSON.stringify({
           event: 'bye',
@@ -17,7 +18,7 @@ class GameController{
       mainScene.loadOpen();
   }
 
-  onClickTalk() {
+  onClickTalkAttack() {
     if (!roomController.room) return
      
     roomController.room.send(JSON.stringify({
