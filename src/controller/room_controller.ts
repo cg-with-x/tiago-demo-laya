@@ -43,6 +43,7 @@ class RoomController {
 
       // NOTE: 如果游戏场景比较复杂，可以预加载一下
       gameScene.loadOpen();
+      gameController.isGaming = true;
     });
 
     room.on(roomEvent.message, ({ message } ) => {
@@ -76,6 +77,7 @@ class RoomController {
       this.room.close();
       this.room = undefined;
     }
+    gameController.isGaming = false;
   }
 }
 

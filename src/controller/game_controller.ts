@@ -44,6 +44,7 @@ class GameController{
       message.forEach(({ event, data}: {event:string, data:any}) => {
         switch (event) {
           case 'game-start':
+            console.log(1121)
             break;
           case 'environment':
             gameModel.environment = data;
@@ -57,7 +58,7 @@ class GameController{
             gameScene.renderServerTime();
             break;
           case 'talk':
-            this.renderTalk(data);
+            gameScene.renderTalk(data);
             break;
           case 'game-over':
             roomController.leave();
@@ -70,15 +71,6 @@ class GameController{
     }
   }
 
-
-  renderTalk({ event, data }: {event:string, data:any}) {
-      // const tip = `战斗力 +${data}`;
-      // if (openId === this.playerAOpenId) {
-      //     this.labelPlayerATip.string = tip;
-      // } else if (openId === this.playerBOpenId) {
-      //     this.labelPlayerBTip.string = tip;
-      // }
-  }
 }
 
 export const gameController = new GameController();

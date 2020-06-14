@@ -93,7 +93,16 @@ export default class GameScene extends Laya.Scene {
             });
         }
     }
-}
+  }
+
+  renderTalk({ openId, data }: {openId:string, data:any}) {
+    const tip = `战斗力 +${data}`;
+    if (openId === this.playerAOpenId) {
+        this.tipA.text = tip;
+    } else if (openId === this.playerBOpenId) {
+        this.tipB.text = tip;
+    }
+  }
   // endregion
 }
 
