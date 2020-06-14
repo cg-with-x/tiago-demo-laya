@@ -74,5 +74,5 @@ export default class GameScene extends Laya.Scene {
   // endregion
 }
 
-// 全局单例，如果需要管理，可以设置管理类，来管理所有场景
+// 全局实例，如果需要管理，可以设置管理类，来管理所有场景
 export const gameScene = new GameScene()

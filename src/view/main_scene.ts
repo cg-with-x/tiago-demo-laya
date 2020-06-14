@@ -69,7 +69,7 @@ export default class MainScene extends Laya.Scene {
   public loadOpen(params?: any, closeOther?: boolean, onOpenedParam?: any) {
     Laya.loader.load(
       this.url,
-      Laya.Handler.create(this, ()=>{
+      Laya.Handler.create(this, (res:any)=>{
         this.loadScene(this.url);
         this.open(closeOther, onOpenedParam);
       })
@@ -81,7 +81,12 @@ export default class MainScene extends Laya.Scene {
     loadAvatarImg(tiagoModel.selfUserInfo.avatarUrl).then((result)=>{
       // this.avatar.texture = result;
       // this.avatar.graphics.drawImage(result)
+      // console.log(1121,Laya.Loader.getRes(tiagoModel.selfUserInfo.avatarUrl));
+      //@ts-ignore
+      this.avatar._bitmap.source= result;
       this.avatar.skin = tiagoModel.selfUserInfo.avatarUrl;
+      this.avatar.sizeGrid = "50,50,50,50";
+      this.avatar.size(500,500);
     });
 
   }
