@@ -80,7 +80,7 @@ export default class GameScene extends Laya.Scene {
             const name = playerA.isAI ? `AI: ${playerA.nickName}` : playerA.nickName;
             this.nicknameA.text = name;
             loadAvatarImg(playerA.avatarUrl).then((result)=>{
-              this.avatarA.skin = tiagoModel.selfUserInfo.avatarUrl;
+              this.avatarA.skin = playerA.avatarUrl;
             });
         }
 
@@ -89,7 +89,7 @@ export default class GameScene extends Laya.Scene {
             const name = playerB.isAI ? `AI: ${playerB.nickName}` : playerB.nickName;
             this.nicknameB.text = name;
             loadAvatarImg(playerB.avatarUrl).then((result)=>{
-              this.avatarB.skin = tiagoModel.selfUserInfo.avatarUrl;
+              this.avatarB.skin = playerB.avatarUrl;
             });
         }
     }

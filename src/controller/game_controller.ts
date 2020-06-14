@@ -44,7 +44,6 @@ class GameController{
       message.forEach(({ event, data}: {event:string, data:any}) => {
         switch (event) {
           case 'game-start':
-            console.log(1121)
             break;
           case 'environment':
             gameModel.environment = data;
