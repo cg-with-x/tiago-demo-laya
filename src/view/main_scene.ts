@@ -79,14 +79,9 @@ export default class MainScene extends Laya.Scene {
   public renderAvatar(){
     // 加载小程序头条
     loadAvatarImg(tiagoModel.selfUserInfo.avatarUrl).then((result)=>{
-      // this.avatar.texture = result;
-      // this.avatar.graphics.drawImage(result)
-      // console.log(1121,Laya.Loader.getRes(tiagoModel.selfUserInfo.avatarUrl));
       //@ts-ignore
       this.avatar._bitmap.source= result;
       this.avatar.skin = tiagoModel.selfUserInfo.avatarUrl;
-      this.avatar.sizeGrid = "50,50,50,50";
-      this.avatar.size(500,500);
     });
 
   }
