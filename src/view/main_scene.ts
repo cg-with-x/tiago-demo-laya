@@ -11,18 +11,27 @@ export default class MainScene extends Laya.Scene {
     this.url = "main_scene.json"
   }
   // region ========================================  Laya UI组件  ========================================
-  // 按钮: 获取配置信息
-  getConfigBtn!: Laya.Button;
-  // 按钮: 获取用户信息
-  getUserInfoBtn!: Laya.Button;
-  // 按钮: 1v1 匹配
-  matchBtn!: Laya.Button;
-  // 按钮: 1v1 匹配 (带AI)
-  matchWithAIBtn!: Laya.Button;
   // 用户头像
   avatar!: Laya.Image;
   // 用户昵称
   nickname!: Laya.Label;
+  // 按钮: 获取配置信息
+  getConfigBtn!: Laya.Button;
+  // 按钮: 获取用户信息
+  getUserInfoBtn!: Laya.Button;
+  // 按钮: 1v1 匹配 (带AI)
+  matchWithAIBtn!: Laya.Button;
+  // 按钮: 1v1 匹配
+  matchBtn!: Laya.Button;
+  // 按钮: 组队-单人-2人-AI
+  teamMatch2AIBtn!: Laya.Button;
+  // 按钮: 组队-单人-2人
+  teamMatch2Btn!: Laya.Button;
+  // 按钮: 组队-单人-6人-AI
+  teamMatch6AIBtn!: Laya.Button;
+  // 按钮: 组队-单人-6人
+  teamMatch6Btn!: Laya.Button;
+
   // endregion
   // region ========================================  自定义参数  ========================================
   // endregion
@@ -37,12 +46,23 @@ export default class MainScene extends Laya.Scene {
     this.getUserInfoBtn.on(Laya.Event.CLICK, this, this.onClickGetUserInfo)
     this.matchBtn.on(Laya.Event.CLICK, this, this.onClickStartSingleMatch)
     this.matchWithAIBtn.on(Laya.Event.CLICK, this, this.onClickStartSingleMatchAI)
+    this.teamMatch2AIBtn.on(Laya.Event.CLICK, this, ()=>{
+      this.onClickTeamMatch(2,true)
+    })
+    this.teamMatch2Btn.on(Laya.Event.CLICK, this, ()=>{
+      this.onClickTeamMatch(2,false)
+    })
+    this.teamMatch6AIBtn.on(Laya.Event.CLICK, this, ()=>{
+      this.onClickTeamMatch(6,true)
+    })
+    this.teamMatch6Btn.on(Laya.Event.CLICK, this, ()=>{
+      this.onClickTeamMatch(6,false)
+    })
   }
 
   onClickGetConfig(){
     tiagoController.getConfig();
   }
-
 
   onClickGetUserInfo(){
     tiagoController.getUserInfo();
@@ -54,7 +74,13 @@ export default class MainScene extends Laya.Scene {
   
   onClickStartSingleMatchAI() {
     tiagoController.startSingleMatch(true)
-  } 
+  }
+
+  onClickTeamMatch(size: number, needAI: boolean){
+    tiagoController.makeTeam(size, needAI)
+  }
+
+  
   
   // endregion
   // region ========================================  自定义方法  ========================================
