@@ -16,6 +16,9 @@ class GameController{
       }));
       roomController.leave();
       mainScene.loadOpen();
+      if (tiagoModel.currentTeam){
+        tiagoModel.currentTeam.return();
+      }
   }
 
   onClickTalkAttack() {

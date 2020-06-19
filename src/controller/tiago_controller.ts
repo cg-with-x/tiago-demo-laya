@@ -3,7 +3,7 @@ import { tiagoModel } from '~/model/tiago_model';
 import { roomController } from './room_controller';
 import { matchEvents } from '~/interface/match_inter';
 import { mainScene } from '~/view/main_scene';
-import { MATCH_TYPE } from '@byted-creative/tiago/lib/interfaces';
+
 
 class TiagoController{
   tiagoInited: boolean = false;
@@ -87,16 +87,19 @@ class TiagoController{
   }
 
   makeTeam(size: number, needAI: boolean){
+    tiagoModel.currentTeam = undefined;
     const team = tiago.makeTeam({
       teamSize: size,
       match: {
-        type: MATCH_TYPE.SINGLE,
+        type: tiago.MATCH_TYPE.Single,
         gameRoomScriptId: ''
       }
     })
 
-     // TODO 字符串变为枚举类型，并且需要根据对应类型，定义result类型。
-     team.on(matchEvents["match-success"], result => {
+    tiagoModel.currentTeam = team;
+
+    // TODO 字符串变为枚举类型，并且需要根据对应类型，定义result类型。
+    team.on(matchEvents["match-success"], result => {
       // 获得匹配成功后的用户信息
       console.log(result);
 

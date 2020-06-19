@@ -1,4 +1,4 @@
-import { Match } from '@byted-creative/tiago/dist/match';
+// import { Match } from '@byted-creative/tiago/dist/match';
 
 export enum matchEvents{
     "match-success" = "match-success",
@@ -11,13 +11,13 @@ export interface MatchEvents {
     
 }
 
-type Ma = Omit<Match, "on" | "off" | "once" | "emit" | "removeAllListeners">;
+// type Ma = Omit<Match, "on" | "off" | "once" | "emit" | "removeAllListeners">;
 
-// declare class Ma implements Omit<Match, "on">
-export interface MatchExtends extends Ma {
-    on<T extends keyof MatchEvents>(eventName: T, listener: (param: MatchEvents[T]) => void): this;
-    off<T extends keyof MatchEvents>(eventName: T, listener: (param: MatchEvents[T]) => void): this;
-    once<T extends keyof MatchEvents>(eventName: T, listener: (param: MatchEvents[T]) => void): this;
-    removeAllListeners<T extends keyof MatchEvents>(eventName: T): this;
-    emit<T extends keyof MatchEvents>(eventName: T, param: MatchEvents[T]): boolean;
-}
+// // declare class Ma implements Omit<Match, "on">
+// export interface MatchExtends extends Ma {
+//     on<T extends keyof MatchEvents>(eventName: T, listener: (param: MatchEvents[T]) => void): this;
+//     off<T extends keyof MatchEvents>(eventName: T, listener: (param: MatchEvents[T]) => void): this;
+//     once<T extends keyof MatchEvents>(eventName: T, listener: (param: MatchEvents[T]) => void): this;
+//     removeAllListeners<T extends keyof MatchEvents>(eventName: T): this;
+//     emit<T extends keyof MatchEvents>(eventName: T, param: MatchEvents[T]): boolean;
+// }

@@ -1,5 +1,5 @@
 import { PlayerInfo, Config } from '@byted-creative/tiago/dist/interface';
-import { Room } from '@byted-creative/pvp-client/build/game_room/room';
+import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
 
 /**
  * 存储tiago相关数据
@@ -11,6 +11,8 @@ class TiagoModel{
   selfUserInfo!: PlayerInfo;
  
   config!: Config; 
+
+  currentTeam?: TiagoTeamTask;
 
 }
 export const tiagoModel = new TiagoModel();
