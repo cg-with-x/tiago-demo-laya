@@ -1,3 +1,5 @@
+release/wxgame/*
+!release/wxgame/project.config.json
 bin/
 !bin/libs
 !bin/index.html
@@ -6,5 +8,3 @@ node_modules/
 src/ui/layaMaxUI.ts
 src/GameConfig.ts
 .rpt2_cache/
-release/
-!release/wxgame/project.config.json
