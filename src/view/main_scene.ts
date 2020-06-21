@@ -35,6 +35,10 @@ export default class MainScene extends Laya.Scene {
   roomNumInput!: Laya.Input;
   // 按钮: 加入房间
   joinRoomBtn!: Laya.Button;
+  // 输入: 房间人数
+  peopleNumInput!: Laya.Input;
+  // 按钮: 创建组队
+  createTeamBtn!: Laya.Button;
   // endregion
   // region ========================================  自定义参数  ========================================
   // endregion
@@ -62,6 +66,7 @@ export default class MainScene extends Laya.Scene {
       this.onClickTeamMatch(6,false)
     })
     this.joinRoomBtn.on(Laya.Event.CLICK, this, this.onClickJoinTeam)
+    this.createTeamBtn.on(Laya.Event.CLICK, this, this.onClickCreateTeam)
   }
 
   onClickGetConfig(){
@@ -86,6 +91,10 @@ export default class MainScene extends Laya.Scene {
 
   onClickJoinTeam(){
     tiagoController.joinTeam(this.roomNumInput.text)
+  }
+
+  onClickCreateTeam(){
+    tiagoController.makeTeam(parseInt(this.peopleNumInput.text), false)
   }
   // endregion
   // region ========================================  自定义方法  ========================================
