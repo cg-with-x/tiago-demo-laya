@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":12,
-    "selecteID":11,
+    "selectedBox":2,
+    "selecteID":3,
     "searchKey":"Scene",
     "referenceLines":[
         {
@@ -24,7 +24,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image",
-            "props":{"y":0,"x":0,"width":750,"skin":"unpack/space_bg.png","sizeGrid":"0,0,1000,0","height":1624},
+            "props":{"y":0,"x":0,"width":750,"skin":"comp/img_blank.png","height":1624},
             "nodeParent":2,
             "label":"Image",
             "isDirectory":false,
