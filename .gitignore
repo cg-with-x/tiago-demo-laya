@@ -6,3 +6,4 @@ node_modules/
 src/ui/layaMaxUI.ts
 src/GameConfig.ts
 .rpt2_cache/
+release/

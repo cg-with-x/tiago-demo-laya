@@ -1,4 +1,3 @@
-import { Room } from '@byted-creative/pvp-client/build/game_room/room';
 import { tiagoModel } from '~/model/tiago_model';
 import tiago from '@byted-creative/tiago';
 import { gameController } from './game_controller';
@@ -25,7 +24,7 @@ class RoomController {
   }
   roomInited = false;
 
-  room?: Room;
+  room?: any;
   init(result: any){
     // NOTE: 随后可以加入游戏房间
     const room = tiago.joinGameRoom({
@@ -38,7 +37,8 @@ class RoomController {
     // NOTE: 加入房间连麦
     tiago.joinRTCForGameRoom(room);
   }
-  loadRoom(room: Room) {
+
+  loadRoom(room: any) {
     this.room = room;
     
     room.on(roomEvent.open, () => {
@@ -49,7 +49,7 @@ class RoomController {
       gameController.isGaming = true;
     });
 
-    room.on(roomEvent.message, ({ message } ) => {
+    room.on(roomEvent.message, ({ message }: any ) => {
       if (gameController.isGaming){
         console.log('[room] 接受到消息: ', message);
         gameController.onRoomMessage(message);

@@ -3,6 +3,7 @@ import { tiagoModel } from '~/model/tiago_model';
 import { roomController } from './room_controller';
 import { matchEvents } from '~/interface/match_inter';
 import { mainScene } from '~/view/main_scene';
+import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
 
 
 class TiagoController{
@@ -17,6 +18,7 @@ class TiagoController{
       tiago.init({
         appId: 'tt5e982825c1b2d9a3',
         debug: true,
+        onJoinTeam: (team) => { this.onJoinTeam(team) }, 
       })
 
       this.tiagoInited = true;
@@ -92,7 +94,8 @@ class TiagoController{
       teamSize: size,
       match: {
         type: tiago.MATCH_TYPE.Single,
-        gameRoomScriptId: ''
+        gameRoomScriptId: '',
+        
       }
     })
 
@@ -117,6 +120,45 @@ class TiagoController{
     });
   }
 
+  joinTeam(number: string){
+    // const { tiago, tiagoInited } = dataManager;
+    if (this.tiagoInited) {
+        const { BUSINESS_SCENE, GAME_ENV } = tiago; 
+        const config = tiago.getConfig();
+        tiago.utils.joinTeamRoom({
+            roomNum: number,
+            currentScene: BUSINESS_SCENE.Wonderland,
+            gameEnv: GAME_ENV.Test,
+        });
+    }
+  }
+
+
+  onJoinTeam(team:TiagoTeamTask) {
+    // NOTE: 可以在适当的时机进行清理，例如：在每次 makeTeam 之前。
+    tiagoModel.currentTeam = team;
+
+    team.on('match-success', result => {
+        // 获得匹配成功后的用户信息
+        console.log(result);
+    });
+    
+    team.on('create-game-room-success', result => {
+        console.log(result);
+
+        // NOTE: 随后可以加入游戏房间
+        const room = tiago.joinGameRoom({
+            roomNum: result.roomNum,
+        });
+
+        // 交由 room_manager 进行管理
+        roomController.loadRoom(room);
+    });
+    
+    team.on('error', error => {
+        console.log(error);
+    });
+  }
   
 
 }
