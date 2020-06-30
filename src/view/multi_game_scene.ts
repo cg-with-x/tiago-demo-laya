@@ -72,7 +72,7 @@ export default class MultiGameScene extends Laya.Scene {
         const tip = new Laya.Label();
         const nickname = new Laya.Label();
         playerSprite.y = offY;
-        offY += 100;
+        offY += 70;
 
         tip.name = 'tip';
         tip.color = '#ffffff';
