@@ -101,44 +101,16 @@ class TiagoController {
     tiagoModel.currentTeam = undefined;
     const team = tiago.makeTeam({
       teamSize: size,
+      isAutoJoinRTC: true, 
       match: {
         type: tiago.MATCH_TYPE.Single,
         gameRoomScriptId: "room-366",
         minPlayerCount: 1,
+        isAutoAppendAI: true, 
       },
     });
 
     tiagoModel.currentTeam = team;
-
-    // TODO 字符串变为枚举类型，并且需要根据对应类型，定义result类型。
-    team.on(matchEvents["match-success"], (result) => {
-      // 获得匹配成功后的用户信息
-      console.log(result);
-    });
-
-    team.on(matchEvents["create-game-room-success"], (result) => {
-      console.log(result);
-
-      // 交由 room_manager 进行管理
-      roomController.init(result);
-    });
-
-    team.on(matchEvents.error, (error) => {
-      console.log(error);
-    });
-  }
-
-  joinTeam(number: string) {
-    // const { tiago, tiagoInited } = dataManager;
-    if (this.tiagoInited) {
-      const { BUSINESS_SCENE, GAME_ENV } = tiago;
-      const config = tiago.getConfig();
-      tiago.utils.joinTeamRoom({
-        roomNum: number,
-        currentScene: BUSINESS_SCENE.Wonderland,
-        gameEnv: GAME_ENV.Test,
-      });
-    }
   }
 
   onJoinTeam(team: TiagoTeamTask) {
@@ -169,6 +141,25 @@ class TiagoController {
     team.on("error", (error) => {
       console.log(error);
     });
+  }
+
+  /**
+   * 加入别的房间
+   *
+   * @param {string} number
+   * @memberof TiagoController
+   */
+  joinTeam(number: string) {
+    // const { tiago, tiagoInited } = dataManager;
+    if (this.tiagoInited) {
+      const { BUSINESS_SCENE, GAME_ENV } = tiago;
+      const config = tiago.getConfig();
+      tiago.utils.joinTeamRoom({
+        roomNum: number,
+        currentScene: BUSINESS_SCENE.Wonderland,
+        gameEnv: GAME_ENV.Test,
+      });
+    }
   }
 }
 export const tiagoController = new TiagoController();
