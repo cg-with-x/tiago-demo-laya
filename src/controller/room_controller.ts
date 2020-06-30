@@ -2,6 +2,7 @@ import { tiagoModel } from '~/model/tiago_model';
 import tiago from '@byted-creative/tiago';
 import { gameController } from './game_controller';
 import { gameScene } from '~/view/game_scene';
+import { multiGameController } from './multi_game_controller';
 
 /**
  * 此为tiago定义的房间事件。
@@ -53,7 +54,10 @@ class RoomController {
       if (gameController.isGaming){
         console.log('[room] 接受到消息: ', message);
         gameController.onRoomMessage(message);
-      
+      }
+      if (multiGameController.isGaming){
+        console.log('[multi-room] 接受到消息: ', message);
+        multiGameController.onRoomMessage(message);
       }
     });
 

@@ -1,4 +1,4 @@
-import { multiGameController } from './multi_game_controller';
+import { multiGameController } from "./multi_game_controller";
 import { matchEvents } from "~/interface/match_inter";
 import { tiagoModel } from "~/model/tiago_model";
 import { gameScene } from "~/view/game_scene";
@@ -9,7 +9,7 @@ import tiago from "@byted-creative/tiago";
 import { gameController } from "./game_controller";
 import { roomController } from "./room_controller";
 import { TiagoTeamTask } from "@byted-creative/tiago/lib/src/services/team";
-import { multiGameScene } from '~/view/multi_game_scene';
+import { multiGameScene } from "~/view/multi_game_scene";
 
 class TiagoController {
   tiagoInited: boolean = false;
@@ -101,12 +101,12 @@ class TiagoController {
     tiagoModel.currentTeam = undefined;
     const team = tiago.makeTeam({
       teamSize: size,
-      isAutoJoinRTC: true, 
+      isAutoJoinRTC: true,
       match: {
         type: tiago.MATCH_TYPE.Single,
         gameRoomScriptId: "room-366",
         minPlayerCount: 1,
-        isAutoAppendAI: true, 
+        isAutoAppendAI: true,
       },
     });
 
@@ -127,15 +127,10 @@ class TiagoController {
     });
 
     team.on("create-game-room-success", (result) => {
-      console.log(result);
-
-      // NOTE: 随后可以加入游戏房间
-      const room = tiago.joinGameRoom({
-        roomNum: result.roomNum,
-      });
+      console.log("create-game-room-success",result);
 
       // 交由 room_manager 进行管理
-      roomController.loadRoom(room);
+      roomController.init(result);
     });
 
     team.on("error", (error) => {
