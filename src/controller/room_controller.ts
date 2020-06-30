@@ -44,7 +44,10 @@ class RoomController {
     room.on(roomEvent.open, () => {
       console.log('[room] 进入游戏成功!');
 
-    });
+      this.room.send(JSON.stringify({
+        event: 'ready',
+      }));
+    }); 
 
     room.on(roomEvent.message, ({ message }: any ) => {
       if (gameController.isGaming){
