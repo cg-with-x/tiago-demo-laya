@@ -1,10 +1,13 @@
-import tiago from '@byted-creative/tiago';
-import { tiagoModel } from '~/model/tiago_model';
-import { roomController } from './room_controller';
 import { matchEvents } from '~/interface/match_inter';
+import { tiagoModel } from '~/model/tiago_model';
+import { gameScene } from '~/view/game_scene';
 import { mainScene } from '~/view/main_scene';
+
+import tiago from '@byted-creative/tiago';
 import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
 
+import { gameController } from './game_controller';
+import { roomController } from './room_controller';
 
 class TiagoController{
   tiagoInited: boolean = false;
@@ -18,7 +21,7 @@ class TiagoController{
       tiago.init({
       appId: 'tt2ac55c78b5ff1f37',
         debug: true,
-        onJoinTeam: (team) => { this.onJoinTeam(team) }, 
+        onJoinTeam: (team: TiagoTeamTask) => { this.onJoinTeam(team) }, 
       })
 
       this.tiagoInited = true;
@@ -73,6 +76,10 @@ class TiagoController{
     match.on(matchEvents["match-success"], result => {
       // 获得匹配成功后的用户信息
       console.log(result);
+
+      // NOTE: 如果游戏场景比较复杂，可以预加载一下
+      gameScene.loadOpen();
+      gameController.isGaming = true;
 
     });
     
@@ -134,7 +141,7 @@ class TiagoController{
   }
 
 
-  onJoinTeam(team:TiagoTeamTask) {
+  onJoinTeam(team: TiagoTeamTask) {
     // NOTE: 可以在适当的时机进行清理，例如：在每次 makeTeam 之前。
     tiagoModel.currentTeam = team;
 

@@ -1,12 +1,12 @@
-import { tiagoModel } from '~/model/tiago_model';
-import tiago from '@byted-creative/tiago';
-import { roomController } from './room_controller';
-import { mainScene } from '~/view/main_scene';
-import { gameModel } from '~/model/game_model';
-import { tiagoController } from './tiago_controller';
-import { gameScene } from '~/view/game_scene';
 
-class GameController{
+import { tiagoModel } from '~/model/tiago_model';
+import { mainScene } from '~/view/main_scene';
+
+import { roomController } from './room_controller';
+import { multiGameModel } from '~/model/multi_game_model';
+import { multiGameScene } from '~/view/multi_game_scene';
+
+class MultiGameController{
   isGaming = false;
   
   onClickEndGame() {
@@ -26,7 +26,7 @@ class GameController{
      
     roomController.room.send(JSON.stringify({
         event: 'talk',
-        data: Math.round(Math.random() * (100 - 0)) + 0,
+        data: Math.random() * 100,
     }));
 
   }
@@ -49,18 +49,18 @@ class GameController{
           case 'game-start':
             break;
           case 'environment':
-            gameModel.environment = data;
+            multiGameModel.environment = data;
             break;
           case 'info':
-            gameModel.twoPlayersInfo = data;
-            gameScene.renderPlayers();
+            multiGameModel.multiPlayersInfo = data;
+            multiGameScene.renderPlayers();
             break;
           case 'server-time':
-            gameModel.serverTime = data;
-            gameScene.renderServerTime();
+            multiGameModel.serverTime = data;
+            multiGameScene.renderServerTime();
             break;
           case 'talk':
-            gameScene.renderTalk(data);
+            multiGameScene.renderTalk(data);
             break;
           case 'game-over':
             roomController.leave();
@@ -75,4 +75,4 @@ class GameController{
 
 }
 
-export const gameController = new GameController();
+export const multiGameController = new MultiGameController();

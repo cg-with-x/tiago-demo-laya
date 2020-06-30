@@ -44,9 +44,6 @@ class RoomController {
     room.on(roomEvent.open, () => {
       console.log('[room] 进入游戏成功!');
 
-      // NOTE: 如果游戏场景比较复杂，可以预加载一下
-      gameScene.loadOpen();
-      gameController.isGaming = true;
     });
 
     room.on(roomEvent.message, ({ message }: any ) => {
