@@ -1,10 +1,9 @@
-import { tiagoModel } from '~/model/tiago_model';
-import tiago from '@byted-creative/tiago';
-import { roomController } from './room_controller';
-import { mainScene } from '~/view/main_scene';
 import { gameModel } from '~/model/game_model';
-import { tiagoController } from './tiago_controller';
+import { tiagoModel } from '~/model/tiago_model';
 import { gameScene } from '~/view/game_scene';
+import { mainScene } from '~/view/main_scene';
+
+import { roomController } from './room_controller';
 
 class GameController{
   isGaming = false;
