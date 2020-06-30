@@ -28,7 +28,7 @@ class MultiGameController {
     roomController.room.send(
       JSON.stringify({
         event: "talk",
-        data: Math.random() * 100,
+        data: Math.round(Math.random() * (100 - 0)) + 0,
       })
     );
   }

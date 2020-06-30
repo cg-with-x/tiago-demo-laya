@@ -28,11 +28,7 @@ export default class MultiGameScene extends Laya.Scene {
 
   onEnable(){
     super.onEnable();
-    if (roomController.room) {
-      roomController.room.send(JSON.stringify({
-        event: 'ready',
-      }));
-    }
+
     this.endRoomBtn.on(Laya.Event.CLICK, this, multiGameController.onClickEndGame);
     this.attackBtn.on(Laya.Event.CLICK, this, multiGameController.onClickTalkAttack);
     this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect)
@@ -76,13 +72,15 @@ export default class MultiGameScene extends Laya.Scene {
 
         tip.name = 'tip';
         tip.color = '#ffffff';
-        tip.fontSize = 24;
+        tip.fontSize = 32;
         tip.text = '战斗力 +0';
         tip.x = 300;
 
-        nickname.color = '';
-        tip.fontSize = 24;
-        nickname.text = infoList[i].isAI ? `AI: ${infoList[i].nickName}` : infoList[i].openId === tiagoModel.selfUserInfo.openId?  `Me: ${infoList[i].nickName}`: infoList[i].nickName;
+        nickname.color = '#ffffff';
+        nickname.fontSize = 32;
+        nickname.text = infoList[i].isAI ? `AI: ${infoList[i].nickName}` : infoList[i].nickName;
+        if (tiagoModel.selfUserInfo && infoList[i].openId === tiagoModel.selfUserInfo.openId)
+          nickname.text = `Me: ${infoList[i].nickName}`
 
         playerSprite.addChild(tip);
         playerSprite.addChild(nickname);

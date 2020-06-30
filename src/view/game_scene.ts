@@ -37,11 +37,7 @@ export default class GameScene extends Laya.Scene {
 
   onEnable(){
     super.onEnable();
-    if (roomController.room) {
-      roomController.room.send(JSON.stringify({
-        event: 'ready',
-      }));
-    }
+    
     this.endRoomBtn.on(Laya.Event.CLICK, this, gameController.onClickEndGame);
     this.attackBtn.on(Laya.Event.CLICK, this, gameController.onClickTalkAttack);
     this.reconnectBtn.on(Laya.Event.CLICK, this, gameController.onClickReconnect)
