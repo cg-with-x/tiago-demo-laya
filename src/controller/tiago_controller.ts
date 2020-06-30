@@ -16,7 +16,7 @@ class TiagoController{
   init(){
     try {
       tiago.init({
-        appId: 'tt5e982825c1b2d9a3',
+      appId: 'tt2ac55c78b5ff1f37',
         debug: true,
         onJoinTeam: (team) => { this.onJoinTeam(team) }, 
       })
@@ -94,7 +94,7 @@ class TiagoController{
       teamSize: size,
       match: {
         type: tiago.MATCH_TYPE.Single,
-        gameRoomScriptId: '',
+        gameRoomScriptId: 'room-366',
         
       }
     })
