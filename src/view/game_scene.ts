@@ -1,9 +1,9 @@
+import { gameController } from '~/controller/game_controller';
 import { roomController } from '~/controller/room_controller';
 import { gameModel } from '~/model/game_model';
-import { mainScene } from './main_scene';
-import { gameController } from '~/controller/game_controller';
-import { tiagoModel } from '~/model/tiago_model';
 import { loadAvatarImg } from '~/util/avatarImg';
+
+
 
 export default class GameScene extends Laya.Scene {
   constructor(){

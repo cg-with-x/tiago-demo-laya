@@ -1,9 +1,6 @@
 import { tiagoController } from '~/controller/tiago_controller';
-import tiago from '@byted-creative/tiago';
 import { tiagoModel } from '~/model/tiago_model';
-import { roomController } from '~/controller/room_controller';
 import { loadAvatarImg } from '~/util/avatarImg';
-
 
 export default class MainScene extends Laya.Scene {
   constructor(){

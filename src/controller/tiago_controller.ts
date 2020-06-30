@@ -4,10 +4,10 @@ import { gameScene } from '~/view/game_scene';
 import { mainScene } from '~/view/main_scene';
 
 import tiago from '@byted-creative/tiago';
-import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
 
 import { gameController } from './game_controller';
 import { roomController } from './room_controller';
+import { TiagoTeamTask } from '@byted-creative/tiago/lib/src/services/team';
 
 class TiagoController{
   tiagoInited: boolean = false;
