@@ -14,7 +14,7 @@ view `/src/view/` 用来存放游戏相关视图
 tiago 相关用法在 `/src/controller/tiago_controller.ts`。
 
 ### 多人匹配
-调用`tiago.init`，之后使用`tiago.maketeam`进行组队，匹配则会由tiago自身负责
+调用`tiago.init`，之后使用`tiago.makeTeam`进行组队，匹配则会由tiago自身负责
 
 ### 单人匹配
 兼容tiago一期的方法
