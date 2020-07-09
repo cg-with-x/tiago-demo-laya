@@ -58,6 +58,7 @@ export default class MultiGameScene extends Laya.Scene {
 
   // 刷新玩家
   renderPlayers() {
+    this.playerList.removeChildren();
     if (multiGameModel.multiPlayersInfo) {
       let offY = 0;
       const infoList = multiGameModel.multiPlayersInfo;
