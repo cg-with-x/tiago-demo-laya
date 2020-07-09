@@ -1,5 +1,6 @@
-import { TiagoTeamTask } from '@byted-creative/tiago/lib/src/services/team';
+
 import { TiagoConfig, PlayerInfo } from '@byted-creative/tiago/lib/src/interfaces';
+import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
 
 /**
  * 存储tiago相关数据

@@ -8,8 +8,8 @@ import tiago from "@byted-creative/tiago";
 
 import { gameController } from "./game_controller";
 import { roomController } from "./room_controller";
-import { TiagoTeamTask } from "@byted-creative/tiago/lib/src/services/team";
 import { multiGameScene } from "~/view/multi_game_scene";
+import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
 
 class TiagoController {
   tiagoInited: boolean = false;
