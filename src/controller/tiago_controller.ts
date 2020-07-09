@@ -71,6 +71,7 @@ class TiagoController {
   }
 
   startSingleMatch(needAI: boolean) {
+    tiagoModel.currentTeam = undefined;
     const match = tiago.startSingleMatch({
       isAutoAppendAI: needAI, // 支持 AI 逻辑
     });
