@@ -17,6 +17,7 @@ class MultiGameController {
     );
     roomController.leave();
     mainScene.loadOpen();
+     // NOTE: 如果之前在一个组队中，则回到队伍
     if (tiagoModel.currentTeam) {
       tiagoModel.currentTeam.return();
     }
