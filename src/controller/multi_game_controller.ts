@@ -4,11 +4,16 @@ import { mainScene } from "~/view/main_scene";
 import { roomController } from "./room_controller";
 import { multiGameModel } from "~/model/multi_game_model";
 import { multiGameScene } from "~/view/multi_game_scene";
+import { settleScene } from '~/view/settle_scene';
 
 class MultiGameController {
   isGaming = false;
 
-  onClickEndGame() {
+  onClickEndGame(){
+    settleScene.loadOpen();
+  }
+
+  onEndRoom() {
     if (!roomController.room) return;
     roomController.room.send(
       JSON.stringify({
