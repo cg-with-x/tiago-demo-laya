@@ -17,8 +17,6 @@ export default class MultiGameScene extends Laya.Scene {
   playerList!: Laya.Box;
   // endregion
   // region ========================================  自定义参数  ========================================
-  playerAOpenId?: string;
-  playerBOpenId?: string;
   private _playerSpriteList: Map<string, Laya.Sprite> = new Map();
   // endregion
   // region ========================================  Laya 生命周期  ========================================
