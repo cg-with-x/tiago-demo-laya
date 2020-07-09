@@ -1,4 +1,4 @@
-import { PlayerInfo } from '@byted-creative/tiago/lib/src/interfaces';
+import { PlayerInfo } from '@byted-creative/tiago/lib/interfaces';
 
 /**
  * 游戏相关数据
