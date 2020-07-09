@@ -2,7 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":18,
+    "selecteID":5,
     "searchKey":"Scene",
     "referenceLines":[
         {
@@ -51,10 +51,10 @@
         {
             "x":15,
             "type":"Button",
-            "searchKey":"Button,endRoomBtn",
-            "props":{"y":1241,"x":174,"width":400,"var":"endRoomBtn","skin":"comp/button.png","labelSize":32,"labelColors":"#FFFFFF","label":"结束战斗","height":100},
+            "searchKey":"Button,endGameBtn",
+            "props":{"y":1241,"x":174,"width":400,"var":"endGameBtn","skin":"comp/button.png","labelSize":32,"labelColors":"#FFFFFF","label":"结束战斗","height":100},
             "nodeParent":2,
-            "label":"endRoomBtn",
+            "label":"endGameBtn",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

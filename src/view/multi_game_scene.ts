@@ -12,7 +12,7 @@ export default class MultiGameScene extends Laya.Scene {
   // region ========================================  Laya UI组件  ========================================
   serverTime!: Laya.Label;
   attackBtn!: Laya.Button;
-  endRoomBtn!: Laya.Button;
+  endGameBtn!: Laya.Button;
   reconnectBtn!: Laya.Button;
   playerList!: Laya.Box;
   // endregion
@@ -27,7 +27,7 @@ export default class MultiGameScene extends Laya.Scene {
   onEnable(){
     super.onEnable();
 
-    this.endRoomBtn.on(Laya.Event.CLICK, this, multiGameController.onClickEndGame);
+    this.endGameBtn.on(Laya.Event.CLICK, this, multiGameController.onClickEndGame);
     this.attackBtn.on(Laya.Event.CLICK, this, multiGameController.onClickTalkAttack);
     this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect)
   }
