@@ -5,7 +5,7 @@ import { roomController } from "./room_controller";
 import { multiGameModel } from "~/model/multi_game_model";
 import { multiGameScene } from "~/view/multi_game_scene";
 import { settleScene } from '~/view/settle_scene';
-
+import tiago from '@byted-creative/tiago';
 class MultiGameController {
   isGaming = false;
 
@@ -17,6 +17,8 @@ class MultiGameController {
         event: "bye",
       })
     );
+    // NOTE: 退出房间连麦
+    tiago.leaveRTCFromGameRoom(roomController.room);
   }
 
   onEndRoom() {

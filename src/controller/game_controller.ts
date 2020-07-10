@@ -4,6 +4,7 @@ import { gameScene } from '~/view/game_scene';
 import { mainScene } from '~/view/main_scene';
 
 import { roomController } from './room_controller';
+import tiago from '@byted-creative/tiago';
 
 class GameController{
   isGaming = false;
@@ -19,6 +20,8 @@ class GameController{
       if (tiagoModel.currentTeam){
         tiagoModel.currentTeam.return();
       }
+      // NOTE: 退出房间连麦
+      tiago.leaveRTCFromGameRoom(roomController.room);
   }
 
   onClickTalkAttack() {
