@@ -107,7 +107,7 @@ class TiagoController {
         type: tiago.MATCH_TYPE.Single,
         gameRoomScriptId: "room-366",
         minPlayerCount: 1,
-        isAutoAppendAI: true,
+        isAutoAppendAI: needAI,
       },
     });
 
