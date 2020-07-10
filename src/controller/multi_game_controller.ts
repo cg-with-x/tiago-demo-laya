@@ -11,9 +11,6 @@ class MultiGameController {
 
   onClickEndGame(){
     settleScene.loadOpen();
-  }
-
-  onEndRoom() {
     if (!roomController.room) return;
     roomController.room.send(
       JSON.stringify({
@@ -21,6 +18,9 @@ class MultiGameController {
       })
     );
     roomController.leave();
+  }
+
+  onEndRoom() {
     mainScene.loadOpen();
      // NOTE: 如果之前在一个组队中，则回到队伍
     if (tiagoModel.currentTeam) {
@@ -72,7 +72,7 @@ class MultiGameController {
             break;
           case "game-over":
             roomController.leave();
-            mainScene.loadOpen();
+            settleScene.loadOpen();
             break;
           default:
             break;
