@@ -17,7 +17,6 @@ class MultiGameController {
         event: "bye",
       })
     );
-    roomController.leave();
   }
 
   onEndRoom() {
@@ -26,6 +25,8 @@ class MultiGameController {
     if (tiagoModel.currentTeam) {
       tiagoModel.currentTeam.return();
     }
+    if (!roomController.room) return;
+    roomController.leave();
   }
 
   onClickTalkAttack() {
