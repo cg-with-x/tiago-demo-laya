@@ -14,14 +14,14 @@ class GameController{
       roomController.room.send(JSON.stringify({
           event: 'bye',
       }));
+      // NOTE: 退出房间连麦
+      tiago.leaveRTCFromGameRoom(roomController.room);
       roomController.leave();
       mainScene.loadOpen();
        // NOTE: 如果之前在一个组队中，则回到队伍
       if (tiagoModel.currentTeam){
         tiagoModel.currentTeam.return();
       }
-      // NOTE: 退出房间连麦
-      tiago.leaveRTCFromGameRoom(roomController.room);
   }
 
   onClickTalkAttack() {
