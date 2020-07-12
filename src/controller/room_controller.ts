@@ -85,6 +85,7 @@ class RoomController {
       this.room = undefined;
     }
     gameController.isGaming = false;
+    multiGameController.isGaming = false;
   }
 }
 
