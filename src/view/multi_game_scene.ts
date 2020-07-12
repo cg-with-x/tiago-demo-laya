@@ -27,7 +27,7 @@ export default class MultiGameScene extends Laya.Scene {
   onEnable(){
     super.onEnable();
 
-    this.endGameBtn.on(Laya.Event.CLICK, this, multiGameController.onClickEndGame);
+    this.endGameBtn.on(Laya.Event.CLICK, this, multiGameController.onEndGame);
     this.attackBtn.on(Laya.Event.CLICK, this, multiGameController.onClickTalkAttack);
     this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect)
   }

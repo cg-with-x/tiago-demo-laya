@@ -9,7 +9,7 @@ import tiago from '@byted-creative/tiago';
 class MultiGameController {
   isGaming = false;
 
-  onClickEndGame(){
+  onEndGame(){
     settleScene.loadOpen();
     if (!roomController.room) return;
     roomController.room.send(
@@ -17,7 +17,7 @@ class MultiGameController {
         event: "bye",
       })
     );
-    // NOTE: 退出房间连麦
+    // 游戏自己结束时，先断开连麦,不离开房间
     tiago.leaveRTCFromGameRoom(roomController.room);
   }
 
@@ -28,6 +28,7 @@ class MultiGameController {
       tiagoModel.currentTeam.return();
     }
     if (!roomController.room) return;
+     // 离开房间
     roomController.leave();
   }
 
@@ -74,8 +75,7 @@ class MultiGameController {
             multiGameScene.renderTalk(data);
             break;
           case "game-over":
-            roomController.leave();
-            settleScene.loadOpen();
+            this.onEndGame();
             break;
           default:
             break;
