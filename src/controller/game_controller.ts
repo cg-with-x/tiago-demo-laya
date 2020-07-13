@@ -14,14 +14,15 @@ class GameController{
       roomController.room.send(JSON.stringify({
           event: 'bye',
       }));
-      // NOTE: 退出房间连麦
-      tiago.leaveRTCFromGameRoom(roomController.room);
-      roomController.leave();
-      mainScene.loadOpen();
-       // NOTE: 如果之前在一个组队中，则回到队伍
-      if (tiagoModel.currentTeam){
-        tiagoModel.currentTeam.return();
-      }
+  }
+
+  onGameOver(){
+    if (!roomController.room) return
+    // NOTE: 退出房间连麦
+    tiago.leaveRTCFromGameRoom(roomController.room);
+    roomController.leave();
+
+    mainScene.loadOpen();
   }
 
   onClickTalkAttack() {
@@ -66,8 +67,7 @@ class GameController{
             gameScene.renderTalk(data);
             break;
           case 'game-over':
-            roomController.leave();
-            mainScene.loadOpen();
+            this.onGameOver();
             break;
           default:
               break;
