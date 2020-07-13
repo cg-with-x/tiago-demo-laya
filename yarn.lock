@@ -818,10 +818,10 @@
     "@byted-creative/pvp-client" "0.0.2-beta-3"
     redux "^4.0.5"
 
-"@byted-creative/tiago@^2.0.8":
-  version "2.0.8"
-  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.0.8.tgz#9c65adb32ed6ae7019eaedc74c5de72e20905af1"
-  integrity sha1-nGWtsy7WrnAZ6u3HTF3nLiCQWvE=
+"@byted-creative/tiago@^2.0.9":
+  version "2.0.9"
+  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.0.9.tgz#09a1aa3448e80d97cfed630bea58d33e97fa1a7f"
+  integrity sha1-CaGqNEjoDZfP7WML6ljTPpf6Gn8=
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
     "@byted-creative/pvp-client" "0.0.2-beta-4"
