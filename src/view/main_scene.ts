@@ -36,6 +36,11 @@ export default class MainScene extends Laya.Scene {
   peopleNumInput!: Laya.Input;
   // 按钮: 创建组队
   createTeamBtn!: Laya.Button;
+  // 输入: 麦克风位置
+  micPosX!: Laya.Input;
+  micPosY!: Laya.Input;
+  // 按钮: 调整麦克风位置
+  changeMicPosBtn!: Laya.Button;
   // endregion
   // region ========================================  自定义参数  ========================================
   // endregion
@@ -64,6 +69,7 @@ export default class MainScene extends Laya.Scene {
     })
     this.joinRoomBtn.on(Laya.Event.CLICK, this, this.onClickJoinTeam)
     this.createTeamBtn.on(Laya.Event.CLICK, this, this.onClickCreateTeam)
+    this.changeMicPosBtn.on(Laya.Event.CLICK, this, this.onClickChangeMicPos)
   }
 
   onClickGetConfig(){
@@ -92,6 +98,10 @@ export default class MainScene extends Laya.Scene {
 
   onClickCreateTeam(){
     tiagoController.makeTeam(parseInt(this.peopleNumInput.text), false)
+  }
+
+  onClickChangeMicPos(){
+    tiagoController.changeMicPos(parseInt(this.micPosX.text), parseInt(this.micPosY.text))
   }
   // endregion
   // region ========================================  自定义方法  ========================================
