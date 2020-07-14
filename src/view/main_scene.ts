@@ -41,6 +41,10 @@ export default class MainScene extends Laya.Scene {
   micPosY!: Laya.Input;
   // 按钮: 调整麦克风位置
   changeMicPosBtn!: Laya.Button;
+  // 按钮: 禁止邀请
+  teamForbidInviteBtn!: Laya.Button;
+  // 按钮: 满员匹配
+  teamForbidMatchBtn!: Laya.Button;
   // endregion
   // region ========================================  自定义参数  ========================================
   // endregion
@@ -70,6 +74,8 @@ export default class MainScene extends Laya.Scene {
     this.joinRoomBtn.on(Laya.Event.CLICK, this, this.onClickJoinTeam)
     this.createTeamBtn.on(Laya.Event.CLICK, this, this.onClickCreateTeam)
     this.changeMicPosBtn.on(Laya.Event.CLICK, this, this.onClickChangeMicPos)
+    this.teamForbidInviteBtn.on(Laya.Event.CLICK, this, this.onClickTeamForbidInvite)
+    this.teamForbidMatchBtn.on(Laya.Event.CLICK, this, this.onClickTeamForbidMatch)
   }
 
   onClickGetConfig(){
@@ -103,6 +109,15 @@ export default class MainScene extends Laya.Scene {
   onClickChangeMicPos(){
     tiagoController.changeMicPos(parseInt(this.micPosX.text), parseInt(this.micPosY.text))
   }
+
+  onClickTeamForbidInvite(){
+    tiagoController.makeTeamWithoutInvite();
+  }
+
+  onClickTeamForbidMatch(){
+    tiagoController.makeTeamWithoutMatchBtn();
+  }
+
   // endregion
   // region ========================================  自定义方法  ========================================
   /**

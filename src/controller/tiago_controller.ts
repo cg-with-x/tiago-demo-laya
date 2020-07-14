@@ -162,5 +162,40 @@ class TiagoController {
     console.log(1122, x, y)
     tiago.setMicPanelOffset(x, y)
   }
+
+  makeTeamWithoutInvite(){
+    tiagoModel.currentTeam = undefined;
+    const team = tiago.makeTeam({
+      teamSize: 4,
+      isAutoJoinRTC: true,
+      disableInvite: true,
+      match: {
+        type: tiago.MATCH_TYPE.Single,
+        gameRoomScriptId: "room-366",
+        minPlayerCount: 1,
+        isAutoAppendAI: true,
+      },
+    });
+
+    tiagoModel.currentTeam = team;
+  }
+
+  makeTeamWithoutMatchBtn(){
+    tiagoModel.currentTeam = undefined;
+    const team = tiago.makeTeam({
+      teamSize: 3,
+      isAutoJoinRTC: true,
+      disableMatch: true,
+      match: {
+        type: tiago.MATCH_TYPE.Single,
+        gameRoomScriptId: "room-366",
+        minPlayerCount: 1,
+        isAutoAppendAI: true,
+      },
+    });
+
+    tiagoModel.currentTeam = team;
+  }
+  
 }
 export const tiagoController = new TiagoController();
