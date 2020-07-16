@@ -17,8 +17,6 @@ class MultiGameController {
         event: "bye",
       })
     );
-    // 游戏自己结束时，先断开连麦,不离开房间
-    tiago.leaveRTCFromGameRoom(roomController.room);
   }
 
   onEndRoom() {

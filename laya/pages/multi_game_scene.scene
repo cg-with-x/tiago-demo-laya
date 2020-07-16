@@ -2,7 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":5,
+    "selecteID":21,
     "searchKey":"Scene",
     "referenceLines":[
         {
@@ -12,7 +12,7 @@
         }],
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
-    "maxID":20,
+    "maxID":23,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -31,6 +31,20 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":3,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "searchKey":"Button,joinRtcBtn",
+            "props":{"y":154,"x":605,"width":115,"var":"joinRtcBtn","skin":"comp/button.png","labelSize":32,"labelColors":"#FFFFFF","label":"连麦","height":100},
+            "nodeParent":2,
+            "label":"joinRtcBtn",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":21,
             "child":[
                 ]
         },

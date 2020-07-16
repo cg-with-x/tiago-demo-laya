@@ -15,9 +15,12 @@ export default class MultiGameScene extends Laya.Scene {
   endGameBtn!: Laya.Button;
   reconnectBtn!: Laya.Button;
   playerList!: Laya.Box;
+  joinRtcBtn!: Laya.Button;
   // endregion
   // region ========================================  自定义参数  ========================================
   private _playerSpriteList: Map<string, Laya.Sprite> = new Map();
+  private _isJoinedRtc = false;
+  private _disableClickJoinRtc = false;
   // endregion
   // region ========================================  Laya 生命周期  ========================================
   onAwake(){
@@ -29,7 +32,27 @@ export default class MultiGameScene extends Laya.Scene {
 
     this.endGameBtn.on(Laya.Event.CLICK, this, multiGameController.onEndGame);
     this.attackBtn.on(Laya.Event.CLICK, this, multiGameController.onClickTalkAttack);
-    this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect)
+    this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect);
+    this.joinRtcBtn.on(Laya.Event.CLICK, this, ()=>{
+      if (this._disableClickJoinRtc){
+        return
+      }else{
+        this._disableClickJoinRtc = true;
+        Laya.timer.once(1500, this, ()=>{
+          this._disableClickJoinRtc = false
+        })
+      }
+      if (this._isJoinedRtc){
+        this.joinRtcBtn.label = "断麦";
+        roomController.leaveRtcRoom();
+      }else {
+        this.joinRtcBtn.label = "连麦";
+        roomController.joinRtcRoom()
+      }
+    
+    })
+
+
   }
 
   // endregion

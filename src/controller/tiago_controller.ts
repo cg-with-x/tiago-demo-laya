@@ -159,7 +159,6 @@ class TiagoController {
   }
 
   changeMicPos(x: number, y: number){
-    console.log(1122, x, y)
     tiago.setMicPanelOffset(x, y)
   }
 

@@ -34,9 +34,18 @@ class RoomController {
 
     // 交由 room_manager 进行管理
     this.loadRoom(room);
+  }
 
-    // NOTE: 加入房间连麦
-    tiago.joinRTCForGameRoom(room);
+  leaveRtcRoom(){
+    if (!this.room) return
+
+    tiago.leaveRTCFromGameRoom(this.room);
+  }
+
+  joinRtcRoom(){
+    if (!this.room) return
+
+    tiago.joinRTCForGameRoom(this.room);
   }
 
   loadRoom(room: any) {
