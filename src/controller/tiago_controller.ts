@@ -10,6 +10,8 @@ import { gameController } from "./game_controller";
 import { roomController } from "./room_controller";
 import { multiGameScene } from "~/view/multi_game_scene";
 import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
+import { Room } from '@byted-creative/pvp-client/build/game_room/room';
+import { RoomResult } from '@byted-creative/tiago/lib/interfaces';
 
 class TiagoController {
   tiagoInited: boolean = false;
@@ -127,7 +129,7 @@ class TiagoController {
       multiGameController.isGaming = true;
     });
 
-    team.on("create-game-room-success", (result) => {
+    team.on("create-game-room-success", (result: RoomResult) => {
       console.log("create-game-room-success",result);
 
       // 交由 room_manager 进行管理

@@ -1,8 +1,8 @@
-import { tiagoModel } from '~/model/tiago_model';
 import tiago from '@byted-creative/tiago';
+import { RoomResult } from '@byted-creative/tiago/lib/interfaces';
 import { gameController } from './game_controller';
-import { gameScene } from '~/view/game_scene';
 import { multiGameController } from './multi_game_controller';
+import { Room } from '@byted-creative/pvp-client/build/game_room/room';
 
 /**
  * 此为tiago定义的房间事件。
@@ -25,8 +25,8 @@ class RoomController {
   }
   roomInited = false;
 
-  room?: any;
-  init(result: any){
+  room?: Room;
+  init(result: RoomResult){
     // NOTE: 随后可以加入游戏房间
     const room = tiago.joinGameRoom({
         roomNum: result.roomNum,
@@ -54,7 +54,7 @@ class RoomController {
     room.on(roomEvent.open, () => {
       console.log('[room] 进入游戏成功!');
 
-      this.room.send(JSON.stringify({
+      this.room && this.room.send(JSON.stringify({
         event: 'ready',
       }));
     }); 
