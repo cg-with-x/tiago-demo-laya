@@ -33,32 +33,7 @@ export default class MultiGameScene extends Laya.Scene {
     this.endGameBtn.on(Laya.Event.CLICK, this, multiGameController.onEndGame);
     this.attackBtn.on(Laya.Event.CLICK, this, multiGameController.onClickTalkAttack);
     this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect);
-    this.joinRtcBtn.on(Laya.Event.CLICK, this, ()=>{
-      if (this._disableClickJoinRtc){
-        this.joinRtcBtn.label = "..."
-        return
-      }else{
-        this._disableClickJoinRtc = true;
-        Laya.timer.once(1500, this, ()=>{
-          this._disableClickJoinRtc = false
-        })
-      }
-      this.joinRtcBtn.label = "...";
-      if (this._isJoinedRtc){
-        roomController.leaveRtcRoom();
-        Laya.timer.once(1500, this, ()=>{
-          this.joinRtcBtn.label = "连麦";
-        })
-        this._isJoinedRtc = false;
-      }else {
-        roomController.joinRtcRoom();
-        Laya.timer.once(1500, this, ()=>{
-          this.joinRtcBtn.label = "断麦";
-        })
-        this._isJoinedRtc = true;
-      }
-    
-    })
+    this.joinRtcBtn.on(Laya.Event.CLICK, this, ()=>{})
 
 
   }
@@ -129,6 +104,34 @@ export default class MultiGameScene extends Laya.Scene {
       const tip = sprite.getChildByName('tip') as Laya.Label;
       tip.text = tipText;
     }
+  }
+
+  // 暂时废弃
+  onClickRtcBtn(){
+    if (this._disableClickJoinRtc){
+      this.joinRtcBtn.label = "..."
+      return
+    }else{
+      this._disableClickJoinRtc = true;
+      Laya.timer.once(1500, this, ()=>{
+        this._disableClickJoinRtc = false
+      })
+    }
+    this.joinRtcBtn.label = "...";
+    if (this._isJoinedRtc){
+      roomController.leaveRtcRoom();
+      Laya.timer.once(1500, this, ()=>{
+        this.joinRtcBtn.label = "连麦";
+      })
+      this._isJoinedRtc = false;
+    }else {
+      roomController.joinRtcRoom();
+      Laya.timer.once(1500, this, ()=>{
+        this.joinRtcBtn.label = "断麦";
+      })
+      this._isJoinedRtc = true;
+    }
+  
   }
   // endregion
 }
