@@ -801,10 +801,10 @@
   dependencies:
     eventemitter3 "^3.1.2"
 
-"@byted-creative/pvp-client@0.0.2-beta-4":
-  version "0.0.2-beta-4"
-  resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.2-beta-4.tgz#dd60b184b254cec7d2113460eed403c14184da5a"
-  integrity sha1-3WCxhLJUzsfSETRg7tQDwUGE2lo=
+"@byted-creative/pvp-client@0.0.4":
+  version "0.0.4"
+  resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.4.tgz#142b0ae55ab35286a5fc7db54f1737f9f15d8a38"
+  integrity sha1-FCsK5VqzUoal/H21Txc3+fFdijg=
   dependencies:
     "@byted-creative/tiago" "2.0.2"
     eventemitter3 "^3.1.2"
@@ -818,13 +818,13 @@
     "@byted-creative/pvp-client" "0.0.2-beta-3"
     redux "^4.0.5"
 
-"@byted-creative/tiago@^2.0.9":
-  version "2.0.9"
-  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.0.9.tgz#09a1aa3448e80d97cfed630bea58d33e97fa1a7f"
-  integrity sha1-CaGqNEjoDZfP7WML6ljTPpf6Gn8=
+"@byted-creative/tiago@^2.1.3":
+  version "2.1.3"
+  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.1.3.tgz#fe3641f00d7a4b845f8bba6fdc8da5266c4aec84"
+  integrity sha1-/jZB8A16S4Rfi7pv3I2lJmxK7IQ=
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
-    "@byted-creative/pvp-client" "0.0.2-beta-4"
+    "@byted-creative/pvp-client" "0.0.4"
     redux "^4.0.5"
 
 "@sindresorhus/is@^0.7.0":
