@@ -25,6 +25,7 @@ export default class MultiGameScene extends Laya.Scene {
   // region ========================================  Laya 生命周期  ========================================
   onAwake(){
     super.onAwake();
+    
   }
 
   onEnable(){
@@ -34,7 +35,6 @@ export default class MultiGameScene extends Laya.Scene {
     this.attackBtn.on(Laya.Event.CLICK, this, multiGameController.onClickTalkAttack);
     this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect);
     this.joinRtcBtn.on(Laya.Event.CLICK, this, ()=>{})
-
 
   }
 

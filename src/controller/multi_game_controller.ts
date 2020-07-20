@@ -61,6 +61,7 @@ class MultiGameController {
       message.forEach(({ event, data }: { event: string; data: any }) => {
         switch (event) {
           case "game-start":
+            roomController.joinRtcRoom();
             break;
           case "environment":
             multiGameModel.environment = data;

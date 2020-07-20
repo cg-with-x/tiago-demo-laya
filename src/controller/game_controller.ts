@@ -17,9 +17,8 @@ class GameController{
   }
 
   onGameOver(){
-    if (!roomController.room) return
-    // NOTE: 退出房间连麦
-    tiago.leaveRTCFromGameRoom(roomController.room);
+
+    roomController.leaveRtcRoom();
     roomController.leave();
 
     mainScene.loadOpen();
