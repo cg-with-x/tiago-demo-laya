@@ -51,6 +51,7 @@ class GameController{
       message.forEach(({ event, data}: {event:string, data:any}) => {
         switch (event) {
           case 'game-start':
+            roomController.joinRtcRoom();
             break;
           case 'environment':
             gameModel.environment = data;
