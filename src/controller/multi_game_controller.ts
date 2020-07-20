@@ -19,6 +19,10 @@ class MultiGameController {
     );
   }
 
+  onPositiveEndGame(){
+    settleScene.loadOpen();
+  }
+
   onEndRoom() {
     mainScene.loadOpen();
     if (!roomController.room) return;
@@ -73,7 +77,7 @@ class MultiGameController {
             multiGameScene.renderTalk(data);
             break;
           case "game-over":
-            this.onEndGame();
+            this.onPositiveEndGame()
             break;
           default:
             break;
