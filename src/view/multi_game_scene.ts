@@ -35,6 +35,7 @@ export default class MultiGameScene extends Laya.Scene {
     this.reconnectBtn.on(Laya.Event.CLICK, this, multiGameController.onClickReconnect);
     this.joinRtcBtn.on(Laya.Event.CLICK, this, ()=>{
       if (this._disableClickJoinRtc){
+        this.joinRtcBtn.label = "..."
         return
       }else{
         this._disableClickJoinRtc = true;
@@ -42,12 +43,19 @@ export default class MultiGameScene extends Laya.Scene {
           this._disableClickJoinRtc = false
         })
       }
+      this.joinRtcBtn.label = "...";
       if (this._isJoinedRtc){
-        this.joinRtcBtn.label = "断麦";
         roomController.leaveRtcRoom();
+        Laya.timer.once(1500, this, ()=>{
+          this.joinRtcBtn.label = "连麦";
+        })
+        this._isJoinedRtc = false;
       }else {
-        this.joinRtcBtn.label = "连麦";
-        roomController.joinRtcRoom()
+        roomController.joinRtcRoom();
+        Laya.timer.once(1500, this, ()=>{
+          this.joinRtcBtn.label = "断麦";
+        })
+        this._isJoinedRtc = true;
       }
     
     })
