@@ -21,13 +21,13 @@ class MultiGameController {
 
   onEndRoom() {
     mainScene.loadOpen();
-     // NOTE: 如果之前在一个组队中，则回到队伍
+    if (!roomController.room) return;
+    // 离开房间
+    roomController.leave();
+    // NOTE: 如果之前在一个组队中，则回到队伍
     if (tiagoModel.currentTeam) {
       tiagoModel.currentTeam.return();
     }
-    if (!roomController.room) return;
-     // 离开房间
-    roomController.leave();
   }
 
   onClickTalkAttack() {

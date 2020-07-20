@@ -89,6 +89,7 @@ class RoomController {
   }
 
   leave() {
+    this.leaveRtcRoom()
     if (this.room) {
       this.room.close();
       this.room = undefined;
