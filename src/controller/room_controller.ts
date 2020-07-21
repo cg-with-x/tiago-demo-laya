@@ -72,7 +72,7 @@ class RoomController {
 
     room.on(roomEvent.close, () => {
       console.log('[room] 房间关闭!');
-
+      this.leaveRtcRoom();
       // NOTE: 根据需要进行重新连接
       // Laya.timer.once(1000, this, () => {
       //     room.reconnect();
@@ -85,6 +85,7 @@ class RoomController {
 
     room.on(roomEvent.reconnecting, (param:any) => {
       console.log('[room] 重连中...', param);
+      this.joinRtcRoom();
     });
   }
 
