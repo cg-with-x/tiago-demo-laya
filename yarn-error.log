@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/zhouxinyu/.nvm/versions/node/v10.15.3/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add rollup
+  /Users/zhouxinyu/.nvm/versions/node/v10.15.3/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add @byted-creative/tiago @2.1.9
 
 PATH: 
   /Users/zhouxinyu/.nvm/versions/node/v10.15.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/puppetlabs/bin:/usr/local/munki:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/zhouxinyu/.nvm/versions/node/v10.15.3/bin
@@ -14,8 +14,8 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: http://bnpm.byted.org/@bytned-game%2fstt: Not found
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:66058:18)
+  Error: http://bnpm.byted.org/@2.1.9: Request "http://bnpm.byted.org/@2.1.9" returned a 405
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:66067:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:129541:22)
       at Request.emit (events.js:189:13)
       at Request.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:130513:10)
@@ -32,7 +32,9 @@ npm manifest:
     "version": "1.0.0",
     "description": "Laya 互动游戏 SDK 接入 SDK",
     "main": "index.js",
-    "scripts": {},
+    "scripts": {
+      "compile": "npx layaair2-cmd compile"
+    },
     "repository": {
       "type": "git",
       "url": "git+https://github.com/cg-with-x/tiago-demo.git"
@@ -44,10 +46,10 @@ npm manifest:
     },
     "homepage": "https://github.com/cg-with-x/tiago-demo#readme",
     "dependencies": {
-      "@byted-creative/tiago": "^0.0.45",
-      "@byted-dino/core": "^1.0.0",
-      "@bytned-game/stt": "^0.0.36",
-      "layaair2-cmd": "^1.6.9"
+      "@byted-creative/tiago": "^2.1.9",
+      "layaair2-cmd": "^1.6.9",
+      "rollup": "^2.15.0",
+      "typescript": "3.6.4"
     },
     "devDependencies": {
       "rollup-plugin-commonjs": "^10.1.0",
@@ -855,107 +857,43 @@ Lockfile:
     resolved "http://bnpm.byted.org/@byted-creative/app_log/download/@byted-creative/app_log-0.0.7.tgz#06ed5ecfe846bd7888d1283835727bc75a562e25"
     integrity sha1-Bu1ez+hGvXiI0Sg4NXJ7x1pWLiU=
   
-  "@byted-creative/cocos_pvp_ui@^0.0.23":
-    version "0.0.23"
-    resolved "http://bnpm.byted.org/@byted-creative/cocos_pvp_ui/download/@byted-creative/cocos_pvp_ui-0.0.23.tgz#df40ce5ef5a77f51592b75fdc525ffa27a88fa93"
-    integrity sha1-30DOXvWnf1FZK3X9xSX/onqI+pM=
-    dependencies:
-      "@byted-creative/live_ui_source" "^0.0.3"
-      "@byted-creative/pvp_microphone" "^0.0.6"
-      tslib "^1.11.1"
-  
-  "@byted-creative/laya_pvp_ui@^0.0.10":
-    version "0.0.10"
-    resolved "http://bnpm.byted.org/@byted-creative/laya_pvp_ui/download/@byted-creative/laya_pvp_ui-0.0.10.tgz#92d9dcafabcc858b7fa5cb20ee4039641ade54f5"
-    integrity sha1-ktncr6vMhYt/pcsg7kA5ZBreVPU=
-    dependencies:
-      "@byted-creative/live_ui_source" "^0.0.3"
-      "@byted-creative/pvp_microphone" "^0.0.6"
-      regenerator-runtime "^0.13.5"
-      tslib "^1.11.1"
-  
-  "@byted-creative/live_ui_source@^0.0.3":
-    version "0.0.3"
-    resolved "http://bnpm.byted.org/@byted-creative/live_ui_source/download/@byted-creative/live_ui_source-0.0.3.tgz#588497cb2edeca2543bfcd7163ccbd25a86f2445"
-    integrity sha1-WISXyy7eyiVDv81xY8y9JahvJEU=
-  
-  "@byted-creative/pvp-client@^0.0.1-beta-1", "@byted-creative/pvp-client@^0.0.1-beta-2":
-    version "0.0.1-beta-2"
-    resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.1-beta-2.tgz#9a72a70824062208e06d6448cab24d9e4f49142f"
-    integrity sha1-mnKnCCQGIgjgbWRIyrJNnk9JFC8=
+  "@byted-creative/pvp-client@0.0.2-beta-3":
+    version "0.0.2-beta-3"
+    resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.2-beta-3.tgz#79304fa3259447f4aabaf91c27f4a35214fec2cf"
+    integrity sha1-eTBPoyWUR/SquvkcJ/SjUhT+ws8=
     dependencies:
       eventemitter3 "^3.1.2"
   
-  "@byted-creative/pvp_match@^0.0.7":
-    version "0.0.7"
-    resolved "http://bnpm.byted.org/@byted-creative/pvp_match/download/@byted-creative/pvp_match-0.0.7.tgz#d3b701f41193071d17b67d5bd1e88fc522cceaf3"
-    integrity sha1-07cB9BGTBx0Xtn1b0eiPxSLM6vM=
+  "@byted-creative/pvp-client@0.0.4":
+    version "0.0.4"
+    resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.4.tgz#142b0ae55ab35286a5fc7db54f1737f9f15d8a38"
+    integrity sha1-FCsK5VqzUoal/H21Txc3+fFdijg=
+    dependencies:
+      "@byted-creative/tiago" "2.0.2"
+      eventemitter3 "^3.1.2"
+  
+  "@byted-creative/tiago@2.0.2":
+    version "2.0.2"
+    resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.0.2.tgz#52a5e5b8c22a235827e64023cf974731583108de"
+    integrity sha1-UqXluMIqI1gn5kAjz5dHMVgxCN4=
     dependencies:
       "@byted-creative/app_log" "^0.0.7"
-      "@byted-creative/pvp-client" "^0.0.1-beta-1"
-      tslib "^1.11.1"
+      "@byted-creative/pvp-client" "0.0.2-beta-3"
+      redux "^4.0.5"
   
-  "@byted-creative/pvp_microphone@^0.0.6":
-    version "0.0.6"
-    resolved "http://bnpm.byted.org/@byted-creative/pvp_microphone/download/@byted-creative/pvp_microphone-0.0.6.tgz#9900f0e2e5fe133839011ab3b34b6c3b7267e442"
-    integrity sha1-mQDw4uX+Ezg5ARqzs0tsO3Jn5EI=
+  "@byted-creative/tiago@^2.1.3":
+    version "2.1.3"
+    resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.1.3.tgz#fe3641f00d7a4b845f8bba6fdc8da5266c4aec84"
+    integrity sha1-/jZB8A16S4Rfi7pv3I2lJmxK7IQ=
     dependencies:
-      "@byted-creative/stt-promisify" "^0.0.8"
-      eventemitter3 "^4.0.0"
-      tslib "^1.11.1"
-  
-  "@byted-creative/stt-promisify@^0.0.8":
-    version "0.0.8"
-    resolved "http://bnpm.byted.org/@byted-creative/stt-promisify/download/@byted-creative/stt-promisify-0.0.8.tgz#6390b62952b45ebaa3c69757ec96df95c9857172"
-    integrity sha1-Y5C2KVK0XrqjxpdX7JbflcmFcXI=
-    dependencies:
-      tslib "^1.10.0"
-  
-  "@byted-creative/tiago@^0.0.45":
-    version "0.0.45"
-    resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-0.0.45.tgz#df9985c13979e064f956ade06312a84f8f550996"
-    integrity sha1-35mFwTl54GT5Vq3gYxKoT49VCZY=
-    dependencies:
-      "@byted-creative/cocos_pvp_ui" "^0.0.23"
-      "@byted-creative/laya_pvp_ui" "^0.0.10"
-      "@byted-creative/pvp-client" "^0.0.1-beta-2"
-      "@byted-creative/pvp_match" "^0.0.7"
-      "@byted-creative/pvp_microphone" "^0.0.6"
-      "@byted-creative/stt-promisify" "^0.0.8"
-      eventemitter3 "^4.0.4"
-      tslib "^1.11.1"
-  
-  "@byted-dino/core@^1.0.0":
-    version "1.0.0"
-    resolved "http://bnpm.byted.org/@byted-dino/core/download/@byted-dino/core-1.0.0.tgz#6f8c0b71f7937ff80b527ea93a72b7bde4d8e3a2"
-    integrity sha1-b4wLcfeTf/gLUn6pOnK3veTY46I=
-    dependencies:
-      "@byted-dino/di" "0.0.13"
-      "@tweenjs/tween.js" "^18.5.0"
-      mobx "^5.15.4"
-      rxjs "^6.5.5"
-  
-  "@byted-dino/di@0.0.13":
-    version "0.0.13"
-    resolved "http://bnpm.byted.org/@byted-dino/di/download/@byted-dino/di-0.0.13.tgz#c42321c2d1d8fc57838f3157bb0910003120518a"
-    integrity sha1-xCMhwtHY/FeDjzFXuwkQADEgUYo=
-    dependencies:
-      reflect-metadata "^0.1.13"
-  
-  "@byted-game/stt@^0.0.36":
-    version "0.0.36"
-    resolved "http://bnpm.byted.org/@byted-game/stt/download/@byted-game/stt-0.0.36.tgz#8633007de4a8fed14b8d55366df4ac40f58f358a"
-    integrity sha1-hjMAfeSo/tFLjVU2bfSsQPWPNYo=
+      "@byted-creative/app_log" "^0.0.7"
+      "@byted-creative/pvp-client" "0.0.4"
+      redux "^4.0.5"
   
   "@sindresorhus/is@^0.7.0":
     version "0.7.0"
     resolved "http://bnpm.byted.org/@sindresorhus/is/download/@sindresorhus/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
     integrity sha1-mgb08TfuhNffBGDB/bETX/psUP0=
-  
-  "@tweenjs/tween.js@^18.5.0":
-    version "18.5.0"
-    resolved "http://bnpm.byted.org/@tweenjs/tween.js/download/@tweenjs/tween.js-18.5.0.tgz#f2aa9e6052c6a314d85c9a8034146f9ae6d4e339"
-    integrity sha1-8qqeYFLGoxTYXJqANBRvmubU4zk=
   
   "@types/estree@*", "@types/estree@0.0.44":
     version "0.0.44"
@@ -3031,11 +2969,6 @@ Lockfile:
     resolved "http://bnpm.byted.org/eventemitter3/download/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
     integrity sha1-LT1I+cNGaY/Og6hdfWZOmFNd9uc=
   
-  eventemitter3@^4.0.0, eventemitter3@^4.0.4:
-    version "4.0.4"
-    resolved "http://bnpm.byted.org/eventemitter3/download/eventemitter3-4.0.4.tgz#b5463ace635a083d018bdc7c917b4c5f10a85384"
-    integrity sha1-tUY6zmNaCD0Bi9x8kXtMXxCoU4Q=
-  
   events@^2.0.0:
     version "2.1.0"
     resolved "http://bnpm.byted.org/events/download/events-2.1.0.tgz#2a9a1e18e6106e0e812aa9ebd4a819b3c29c0ba5"
@@ -3481,6 +3414,11 @@ Lockfile:
     version "1.0.0"
     resolved "http://bnpm.byted.org/fs.realpath/download/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
     integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+  
+  fsevents@~2.1.2:
+    version "2.1.3"
+    resolved "http://bnpm.byted.org/fsevents/download/fsevents-2.1.3.tgz#fb738703ae8d2f9fe900c33836ddebee8b97f23e"
+    integrity sha1-+3OHA66NL5/pAMM4Nt3r7ouX8j4=
   
   function-bind@^1.1.1:
     version "1.1.1"
@@ -4981,7 +4919,7 @@ Lockfile:
     resolved "http://bnpm.byted.org/longest/download/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
     integrity sha1-MKCy2jj3N3DoKUoNIuZiXtd9AJc=
   
-  loose-envify@^1.0.0:
+  loose-envify@^1.0.0, loose-envify@^1.4.0:
     version "1.4.0"
     resolved "http://bnpm.byted.org/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
     integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
@@ -5248,11 +5186,6 @@ Lockfile:
     integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
     dependencies:
       minimist "^1.2.5"
-  
-  mobx@^5.15.4:
-    version "5.15.4"
-    resolved "http://bnpm.byted.org/mobx/download/mobx-5.15.4.tgz#9da1a84e97ba624622f4e55a0bf3300fb931c2ab"
-    integrity sha1-naGoTpe6YkYi9OVaC/MwD7kxwqs=
   
   modify-filename@^1.0.0, modify-filename@^1.1.0:
     version "1.1.0"
@@ -6136,10 +6069,13 @@ Lockfile:
       indent-string "^2.1.0"
       strip-indent "^1.0.1"
   
-  reflect-metadata@^0.1.13:
-    version "0.1.13"
-    resolved "http://bnpm.byted.org/reflect-metadata/download/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
-    integrity sha1-Z648pXyXKiqhZCsQ/jY/4y1J3Ag=
+  redux@^4.0.5:
+    version "4.0.5"
+    resolved "http://bnpm.byted.org/redux/download/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
+    integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=
+    dependencies:
+      loose-envify "^1.4.0"
+      symbol-observable "^1.2.0"
   
   regenerate-unicode-properties@^8.2.0:
     version "8.2.0"
@@ -6158,7 +6094,7 @@ Lockfile:
     resolved "http://bnpm.byted.org/regenerator-runtime/download/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
     integrity sha1-vgWtf5v30i4Fb5cmzuUBf78Z4uk=
   
-  regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.5:
+  regenerator-runtime@^0.13.4:
     version "0.13.5"
     resolved "http://bnpm.byted.org/regenerator-runtime/download/regenerator-runtime-0.13.5.tgz#d878a1d094b4306d10b9096484b33ebd55e26697"
     integrity sha1-2Hih0JS0MG0QuQlkhLM+vVXiZpc=
@@ -6419,17 +6355,17 @@ Lockfile:
       "@types/node" "*"
       acorn "^7.1.0"
   
+  rollup@^2.15.0:
+    version "2.15.0"
+    resolved "http://bnpm.byted.org/rollup/download/rollup-2.15.0.tgz#1324633188c7f82138bd3bdc99416009ee541f48"
+    integrity sha1-EyRjMYjH+CE4vTvcmUFgCe5UH0g=
+    optionalDependencies:
+      fsevents "~2.1.2"
+  
   round10@^1.0.3:
     version "1.0.3"
     resolved "http://bnpm.byted.org/round10/download/round10-1.0.3.tgz#86110f46a10874a1931da7fdd5e06d1857a8e4d0"
     integrity sha1-hhEPRqEIdKGTHaf91eBtGFeo5NA=
-  
-  rxjs@^6.5.5:
-    version "6.5.5"
-    resolved "http://bnpm.byted.org/rxjs/download/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
-    integrity sha1-xciE4wlMjP7jG/J+uH5UzPyH+ew=
-    dependencies:
-      tslib "^1.9.0"
   
   safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
     version "5.1.2"
@@ -6984,6 +6920,11 @@ Lockfile:
       unquote "~1.1.1"
       util.promisify "~1.0.0"
   
+  symbol-observable@^1.2.0:
+    version "1.2.0"
+    resolved "http://bnpm.byted.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+    integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
+  
   syntax-error@^1.1.1:
     version "1.4.0"
     resolved "http://bnpm.byted.org/syntax-error/download/syntax-error-1.4.0.tgz#2d9d4ff5c064acb711594a3e3b95054ad51d907c"
@@ -7205,11 +7146,6 @@ Lockfile:
     resolved "http://bnpm.byted.org/tslib/download/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
     integrity sha1-w8GflZc/sKYpc/sJ2Q2WHuQ+XIo=
   
-  tslib@^1.10.0, tslib@^1.11.1, tslib@^1.9.0:
-    version "1.13.0"
-    resolved "http://bnpm.byted.org/tslib/download/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
-    integrity sha1-yIHhPMcBWJTtkUhi0nZDb6mkcEM=
-  
   tty-browserify@0.0.1:
     version "0.0.1"
     resolved "http://bnpm.byted.org/tty-browserify/download/tty-browserify-0.0.1.tgz#3f05251ee17904dfd0677546670db9651682b811"
@@ -7231,6 +7167,11 @@ Lockfile:
     version "0.0.6"
     resolved "http://bnpm.byted.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
     integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+  
+  typescript@3.6.4:
+    version "3.6.4"
+    resolved "http://bnpm.byted.org/typescript/download/typescript-3.6.4.tgz#b18752bb3792bc1a0281335f7f6ebf1bbfc5b91d"
+    integrity sha1-sYdSuzeSvBoCgTNff26/G7/FuR0=
   
   typescript@^3.2.2:
     version "3.9.5"

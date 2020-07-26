@@ -794,37 +794,20 @@
   resolved "http://bnpm.byted.org/@byted-creative/app_log/download/@byted-creative/app_log-0.0.7.tgz#06ed5ecfe846bd7888d1283835727bc75a562e25"
   integrity sha1-Bu1ez+hGvXiI0Sg4NXJ7x1pWLiU=
 
-"@byted-creative/pvp-client@0.0.2-beta-3":
-  version "0.0.2-beta-3"
-  resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.2-beta-3.tgz#79304fa3259447f4aabaf91c27f4a35214fec2cf"
-  integrity sha1-eTBPoyWUR/SquvkcJ/SjUhT+ws8=
+"@byted-creative/pvp-client@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@byted-creative/pvp-client/-/pvp-client-0.0.9.tgz#3ce2386836ed763221fe13b1b3a6bd0157e2c1ba"
+  integrity sha512-nm2Mb3MwPLSXMIsY8IuWGy/4QimdfgB0+5MF/Eeumq64nRTKPSZ+C9oHz4DndhDY4rv3osEkeExv2taPWpIi+A==
   dependencies:
     eventemitter3 "^3.1.2"
 
-"@byted-creative/pvp-client@0.0.4":
-  version "0.0.4"
-  resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.4.tgz#142b0ae55ab35286a5fc7db54f1737f9f15d8a38"
-  integrity sha1-FCsK5VqzUoal/H21Txc3+fFdijg=
-  dependencies:
-    "@byted-creative/tiago" "2.0.2"
-    eventemitter3 "^3.1.2"
-
-"@byted-creative/tiago@2.0.2":
-  version "2.0.2"
-  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.0.2.tgz#52a5e5b8c22a235827e64023cf974731583108de"
-  integrity sha1-UqXluMIqI1gn5kAjz5dHMVgxCN4=
+"@byted-creative/tiago@^2.1.9":
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-2.1.9.tgz#a757b3d0d12694fa89da943e345fd2e3dd0b97d8"
+  integrity sha512-qjFo34cAdwcADB65jX5C4h1Ak1xiPHVxi/WJ3/yEcz/Zlh5hlTbaGy4kWVsLvTbvQBC7WDoT+F0HNyeiXXviJw==
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
-    "@byted-creative/pvp-client" "0.0.2-beta-3"
-    redux "^4.0.5"
-
-"@byted-creative/tiago@^2.1.3":
-  version "2.1.3"
-  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.1.3.tgz#fe3641f00d7a4b845f8bba6fdc8da5266c4aec84"
-  integrity sha1-/jZB8A16S4Rfi7pv3I2lJmxK7IQ=
-  dependencies:
-    "@byted-creative/app_log" "^0.0.7"
-    "@byted-creative/pvp-client" "0.0.4"
+    "@byted-creative/pvp-client" "^0.0.9"
     redux "^4.0.5"
 
 "@sindresorhus/is@^0.7.0":
