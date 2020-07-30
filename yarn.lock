@@ -801,10 +801,10 @@
   dependencies:
     eventemitter3 "^3.1.2"
 
-"@byted-creative/tiago@^2.1.12":
-  version "2.1.12"
-  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-2.1.12.tgz#7b479f5967d8db93f77afab0298893013e911e15"
-  integrity sha512-uB7M5Ht2s/wB38OZuarCKyl5SQ1adaCERYNJWhutB9bjE2MQiBaJxFOsKRI/CUbW8xVMwqKmQNYbqaMksAsM9w==
+"@byted-creative/tiago@^2.1.14":
+  version "2.1.14"
+  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-2.1.14.tgz#f1ec5e40e1f89ba3179cbd346e3b2dd6660a7f15"
+  integrity sha512-LdML1XBlNvkdfW9K3snmkfUNzcpJ4Ka1C21rAtGgsiks9fLh8F87VgATC5vxyRaJVpULrhAmKqSP8BJ2GdamPg==
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
     "@byted-creative/pvp-client" "^0.0.9"
