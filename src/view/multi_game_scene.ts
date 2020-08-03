@@ -25,7 +25,6 @@ export default class MultiGameScene extends Laya.Scene {
   // region ========================================  Laya 生命周期  ========================================
   onAwake(){
     super.onAwake();
-    
   }
 
   onEnable(){
@@ -54,6 +53,7 @@ export default class MultiGameScene extends Laya.Scene {
       Laya.Handler.create(this, ()=>{
         this.loadScene(this.url);
         this.open(closeOther, onOpenedParam);
+        this.cleanPlayers();
       })
     );
   }
@@ -62,6 +62,9 @@ export default class MultiGameScene extends Laya.Scene {
     this.serverTime.text = `${multiGameModel.environment}: ${multiGameModel.serverTime}`;
   }
 
+  cleanPlayers(){
+    this.playerList.removeChildren();
+  }
   // 刷新玩家
   renderPlayers() {
     this.playerList.removeChildren();
