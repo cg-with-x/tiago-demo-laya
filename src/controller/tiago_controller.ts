@@ -12,6 +12,7 @@ import { multiGameScene } from "~/view/multi_game_scene";
 import { TiagoTeamTask } from '@byted-creative/tiago/lib/services/team';
 import { Room } from '@byted-creative/pvp-client/build/game_room/room';
 import { RoomResult } from '@byted-creative/tiago/lib/interfaces';
+import recordController from './record_controller';
 
 class TiagoController {
   tiagoInited: boolean = false;
@@ -198,5 +199,16 @@ class TiagoController {
     tiagoModel.currentTeam = team;
   }
   
+  async uploadVideo(){
+    try{
+      if (recordController.videoPath){
+        await tiago.uploadVideo(recordController.videoPath, 'demo 上传');
+      }
+    } catch(err) {
+      if(err.code !== 401){
+        // TODO 处理上传失败逻辑
+      }
+    }
+  }
 }
 export const tiagoController = new TiagoController();

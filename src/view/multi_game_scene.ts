@@ -1,8 +1,8 @@
+import { multiGameController } from '~/controller/multi_game_controller';
+import { roomController } from '~/controller/room_controller';
+import { multiGameModel } from '~/model/multi_game_model';
 import { tiagoModel } from './../model/tiago_model';
 
-import { roomController } from '~/controller/room_controller';
-import { multiGameController } from '~/controller/multi_game_controller';
-import { multiGameModel } from '~/model/multi_game_model';
 
 export default class MultiGameScene extends Laya.Scene {
   constructor(){

@@ -1,15 +1,20 @@
+import { multiGameModel } from "~/model/multi_game_model";
 import { tiagoModel } from "~/model/tiago_model";
 import { mainScene } from "~/view/main_scene";
-
-import { roomController } from "./room_controller";
-import { multiGameModel } from "~/model/multi_game_model";
 import { multiGameScene } from "~/view/multi_game_scene";
 import { settleScene } from '~/view/settle_scene';
-import tiago from '@byted-creative/tiago';
+import recordController from './record_controller';
+import { roomController } from "./room_controller";
+import { tiagoController } from './tiago_controller';
+
 class MultiGameController {
   isGaming = false;
 
   onEndGame(){
+    // 停止录屏上传视频
+    recordController.recordManager.stop();
+    tiagoController.uploadVideo();
+
     settleScene.loadOpen();
     if (!roomController.room) return;
     roomController.room.send(
@@ -19,7 +24,11 @@ class MultiGameController {
     );
   }
 
-  onPositiveEndGame(){
+  async onPositiveEndGame(){
+    // 停止录屏上传视频
+    recordController.recordManager.stop();
+    tiagoController.uploadVideo();
+
     settleScene.loadOpen();
   }
 
@@ -62,6 +71,7 @@ class MultiGameController {
         switch (event) {
           case "game-start":
             roomController.joinRtcRoom();
+            recordController.recordManager.start({duration: 300});
             break;
           case "environment":
             multiGameModel.environment = data;
