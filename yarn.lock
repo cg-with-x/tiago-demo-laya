@@ -794,20 +794,21 @@
   resolved "http://bnpm.byted.org/@byted-creative/app_log/download/@byted-creative/app_log-0.0.7.tgz#06ed5ecfe846bd7888d1283835727bc75a562e25"
   integrity sha1-Bu1ez+hGvXiI0Sg4NXJ7x1pWLiU=
 
-"@byted-creative/pvp-client@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@byted-creative/pvp-client/-/pvp-client-0.0.9.tgz#3ce2386836ed763221fe13b1b3a6bd0157e2c1ba"
-  integrity sha512-nm2Mb3MwPLSXMIsY8IuWGy/4QimdfgB0+5MF/Eeumq64nRTKPSZ+C9oHz4DndhDY4rv3osEkeExv2taPWpIi+A==
-  dependencies:
-    eventemitter3 "^3.1.2"
-
-"@byted-creative/tiago@^2.1.17":
-  version "2.1.17"
-  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-2.1.17.tgz#3430cf72f6be5112a6e4ba94fc173a2804a7f498"
-  integrity sha512-xcQvfJP8y8heHylvzCozo+n/6N0CdoANoHFLR3ccDP1seh3KX8aLHhEzbx4FePbj8RCAqKQnPIerpMqDxgSgGQ==
+"@byted-creative/pvp-client@^0.0.11":
+  version "0.0.11"
+  resolved "http://bnpm.byted.org/@byted-creative/pvp-client/download/@byted-creative/pvp-client-0.0.11.tgz#89a94eb4e405cc25cd61ed8632f4dbeeb9ada619"
+  integrity sha1-ialOtOQFzCXNYe2GMvTb7rmtphk=
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
-    "@byted-creative/pvp-client" "^0.0.9"
+    eventemitter3 "^3.1.2"
+
+"@byted-creative/tiago@^2.2.1":
+  version "2.2.1"
+  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.2.1.tgz#aa5496514adbc5eb7bca4211fad612d064b442e8"
+  integrity sha1-qlSWUUrbxet7ykIR+tYS0GS0Qug=
+  dependencies:
+    "@byted-creative/app_log" "^0.0.7"
+    "@byted-creative/pvp-client" "^0.0.11"
     redux "^4.0.5"
 
 "@sindresorhus/is@^0.7.0":
