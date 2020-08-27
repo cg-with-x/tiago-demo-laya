@@ -1,3 +1,5 @@
+import { tiagoController } from './tiago_controller';
+
 class RecordController {
   constructor() {
     if (typeof tt === "undefined") {
@@ -9,8 +11,10 @@ class RecordController {
       console.log(res.videoPath);
       // 保存下来videoPath
       this.videoPath = res.videoPath;
+
+      tiagoController.uploadVideo();
     });
-    this._recordManager.onStop((res) => {
+    this._recordManager.onStart(() => {
       console.log("录屏开始");
       this.videoPath = undefined;
     });
