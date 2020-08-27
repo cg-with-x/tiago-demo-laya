@@ -802,10 +802,10 @@
     "@byted-creative/app_log" "^0.0.7"
     eventemitter3 "^3.1.2"
 
-"@byted-creative/tiago@^2.2.1":
-  version "2.2.1"
-  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.2.1.tgz#aa5496514adbc5eb7bca4211fad612d064b442e8"
-  integrity sha1-qlSWUUrbxet7ykIR+tYS0GS0Qug=
+"@byted-creative/tiago@^2.2.3":
+  version "2.2.3"
+  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.2.3.tgz#e5c6a2a0fa234d12ffc098647860afedbfa89592"
+  integrity sha1-5caioPojTRL/wJhkeGCv7b+olZI=
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
     "@byted-creative/pvp-client" "^0.0.11"
