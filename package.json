@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/cg-with-x/tiago-demo#readme",
   "dependencies": {
-    "@byted-creative/tiago": "^2.2.3",
+    "@byted-creative/tiago": "2.2.4",
     "layaair2-cmd": "^1.6.9",
     "rollup": "^2.15.0",
     "typescript": "3.6.4"

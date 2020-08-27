@@ -802,13 +802,14 @@
     "@byted-creative/app_log" "^0.0.7"
     eventemitter3 "^3.1.2"
 
-"@byted-creative/tiago@^2.2.3":
-  version "2.2.3"
-  resolved "http://bnpm.byted.org/@byted-creative/tiago/download/@byted-creative/tiago-2.2.3.tgz#e5c6a2a0fa234d12ffc098647860afedbfa89592"
-  integrity sha1-5caioPojTRL/wJhkeGCv7b+olZI=
+"@byted-creative/tiago@2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-2.2.4.tgz#519133caa9b998a78175f816a37002d84ac02865"
+  integrity sha512-6gusnbBiS9+ycXGZXciOCO5z/qCuD/jRRg6KAD60Mg/KJF1EQFRx5G9wshjYuWjxbR7U7Dxr6gwt0QoF2DtiOA==
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
     "@byted-creative/pvp-client" "^0.0.11"
+    crypto-es "^1.2.6"
     redux "^4.0.5"
 
 "@sindresorhus/is@^0.7.0":
@@ -2345,6 +2346,11 @@ crypto-browserify@^3.0.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+crypto-es@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/crypto-es/-/crypto-es-1.2.6.tgz#468f3573a5d7b82e3b63b0004f55f905a6d3b12c"
+  integrity sha512-PQnrovdr5ibmOxqAh/Vy+A30RokHom7kb9Z61EPwfASfbcJCrCG4+vNNegmebNVHiXvS7WjYpHDePxnE/biEbA==
 
 css-select-base-adapter@^0.1.1:
   version "0.1.1"
