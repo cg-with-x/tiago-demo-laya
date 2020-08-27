@@ -199,15 +199,13 @@ class TiagoController {
     tiagoModel.currentTeam = team;
   }
   
-  async uploadVideo(){
-    try{
-      if (recordController.videoPath){
-        await tiago.uploadVideo(recordController.videoPath, 'demo 上传');
-      }
-    } catch(err) {
-      if(err.code !== 401){
-        // TODO 处理上传失败逻辑
-      }
+  uploadVideo(){
+    if (recordController.videoPath){
+      tiago.uploadVideo(recordController.videoPath, 'demo 上传').catch((err)=>{
+        if(err.code !== 401){
+          // TODO 处理上传失败逻辑
+        }
+      });
     }
   }
 }

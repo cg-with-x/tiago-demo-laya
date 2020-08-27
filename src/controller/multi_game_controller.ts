@@ -12,7 +12,7 @@ class MultiGameController {
 
   onEndGame(){
     // 停止录屏上传视频
-    recordController.recordManager.stop();
+    recordController.stop();
     tiagoController.uploadVideo();
 
     settleScene.loadOpen();
@@ -24,9 +24,9 @@ class MultiGameController {
     );
   }
 
-  async onPositiveEndGame(){
+  onPositiveEndGame(){
     // 停止录屏上传视频
-    recordController.recordManager.stop();
+    recordController.stop();
     tiagoController.uploadVideo();
 
     settleScene.loadOpen();
@@ -71,7 +71,7 @@ class MultiGameController {
         switch (event) {
           case "game-start":
             roomController.joinRtcRoom();
-            recordController.recordManager.start({duration: 300});
+            recordController.start();
             break;
           case "environment":
             multiGameModel.environment = data;

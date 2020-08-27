@@ -13,7 +13,7 @@ class GameController {
 
   onClickEndGame() {
     // 停止录屏上传视频
-    recordController.recordManager.stop();
+    recordController.stop();
     tiagoController.uploadVideo();
     
     if (!roomController.room) return;
@@ -58,7 +58,7 @@ class GameController {
       message.forEach(({ event, data }: { event: string; data: any }) => {
         switch (event) {
           case "game-start":
-            recordController.recordManager.start({duration: 300});
+            recordController.start();
             roomController.joinRtcRoom();
             break;
           case "environment":

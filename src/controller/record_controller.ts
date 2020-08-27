@@ -1,21 +1,35 @@
 class RecordController {
-  constructor(){
-    this.recordManager = tt.getGameRecorderManager();
-    this.recordManager.onStop((res) => {
+  constructor() {
+    if (typeof tt === "undefined") {
+      return;
+    }
+    this._recordManager = tt.getGameRecorderManager();
+    this._recordManager.onStop((res) => {
       console.log("录屏结束");
       console.log(res.videoPath);
       // 保存下来videoPath
       this.videoPath = res.videoPath;
     });
-    this.recordManager.onStop((res) => {
+    this._recordManager.onStop((res) => {
       console.log("录屏开始");
       this.videoPath = undefined;
-    })
+    });
   }
 
-  public recordManager: tt.GameRecorderManager ;
+  private _recordManager?: tt.GameRecorderManager;
 
   public videoPath?: string;
+
+  public stop() {
+    if (this._recordManager) {
+      this._recordManager.stop();
+    }
+  }
+  public start() {
+    if (this._recordManager) {
+      this._recordManager.start({duration:300});
+    }
+  }
 }
 
 let recordController = new RecordController();
