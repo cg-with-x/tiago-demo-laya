@@ -16,6 +16,7 @@ class RecordController {
     });
     this._recordManager.onStart(() => {
       console.log("录屏开始");
+      tiagoController.canUploadVideo = false;
       this.videoPath = undefined;
     });
   }

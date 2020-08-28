@@ -13,8 +13,8 @@ class GameController {
 
   onClickEndGame() {
     // 停止录屏上传视频
+    tiagoController.canUploadVideo = true;
     recordController.stop();
-    tiagoController.uploadVideo();
     
     if (!roomController.room) return;
     roomController.room.send(

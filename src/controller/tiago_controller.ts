@@ -199,9 +199,15 @@ class TiagoController {
     tiagoModel.currentTeam = team;
   }
   
+  public canUploadVideo = false;
   uploadVideo(){
-    if (recordController.videoPath){
-      tiago.uploadVideo(recordController.videoPath, 'demo 上传').catch((err)=>{
+    if (recordController.videoPath && this.canUploadVideo === true){
+      tiago.uploadVideo(recordController.videoPath, 'demo 上传')
+      .then(()=>{
+        recordController.videoPath = undefined;
+        this.canUploadVideo === false;
+      })
+      .catch((err)=>{
         if(err.code !== 401){
           // TODO 处理上传失败逻辑
         }

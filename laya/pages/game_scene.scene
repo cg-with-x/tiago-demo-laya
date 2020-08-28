@@ -52,7 +52,7 @@
             "x":15,
             "type":"Button",
             "searchKey":"Button,endRoomBtn",
-            "props":{"y":1055,"x":175,"width":400,"var":"endRoomBtn","skin":"comp/button.png","labelSize":32,"labelColors":"#FFFFFF","label":"结束战斗","height":100},
+            "props":{"y":1055,"x":175,"width":400,"var":"endRoomBtn","skin":"comp/button.png","labelSize":32,"labelColors":"#FFFFFF","label":"结束战斗并上传","height":100},
             "nodeParent":2,
             "label":"endRoomBtn",
             "isDirectory":false,

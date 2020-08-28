@@ -11,10 +11,6 @@ class MultiGameController {
   isGaming = false;
 
   onEndGame(){
-    // 停止录屏上传视频
-    recordController.stop();
-    tiagoController.uploadVideo();
-
     settleScene.loadOpen();
     if (!roomController.room) return;
     roomController.room.send(
@@ -25,14 +21,14 @@ class MultiGameController {
   }
 
   onPositiveEndGame(){
-    // 停止录屏上传视频
-    recordController.stop();
-    tiagoController.uploadVideo();
-
     settleScene.loadOpen();
   }
 
   onEndRoom() {
+    // 停止录屏上传视频
+    tiagoController.canUploadVideo = true;
+    recordController.stop();
+    
     mainScene.loadOpen();
     if (!roomController.room) return;
     // 离开房间
