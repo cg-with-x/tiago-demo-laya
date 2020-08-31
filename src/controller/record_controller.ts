@@ -7,7 +7,7 @@ class RecordController {
     }
     this._recordManager = tt.getGameRecorderManager();
     this._recordManager.onStop((res) => {
-      console.log("录屏结束");
+      console.warn("录屏结束");
       console.log(res.videoPath);
       // 保存下来videoPath
       this.videoPath = res.videoPath;
@@ -15,7 +15,7 @@ class RecordController {
       tiagoController.uploadVideo();
     });
     this._recordManager.onStart(() => {
-      console.log("录屏开始");
+      console.warn("录屏开始");
       tiagoController.canUploadVideo = false;
       this.videoPath = undefined;
     });
@@ -28,6 +28,9 @@ class RecordController {
   public stop() {
     if (this._recordManager) {
       this._recordManager.stop();
+    }
+    if (this.videoPath){
+      tiagoController.uploadVideo();
     }
   }
   public start() {

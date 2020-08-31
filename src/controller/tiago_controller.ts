@@ -201,6 +201,7 @@ class TiagoController {
   
   public canUploadVideo = false;
   uploadVideo(){
+    console.warn("录屏上传", recordController.videoPath, this.canUploadVideo)
     if (recordController.videoPath && this.canUploadVideo === true){
       tiago.uploadVideo(recordController.videoPath, 'demo 上传')
       .then(()=>{
@@ -208,6 +209,7 @@ class TiagoController {
         this.canUploadVideo === false;
       })
       .catch((err)=>{
+        this.canUploadVideo === false;
         if(err.code !== 401){
           // TODO 处理上传失败逻辑
         }
