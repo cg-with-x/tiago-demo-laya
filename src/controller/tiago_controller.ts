@@ -22,21 +22,23 @@ class TiagoController {
    * @memberof TiagoController
    */
   init() {
-    try {
-      tiago.init({
-        appId: "tt2ac55c78b5ff1f37",
-        debug: true,
-        onJoinTeam: (team: TiagoTeamTask) => {
-          this.onJoinTeam(team);
-        },
-      });
-
-      this.tiagoInited = true;
-      console.log("tiago init success.");
-    } catch (err) {
+    tiago.init({
+      appId: "tt2ac55c78b5ff1f37",
+      debug: true,
+      onJoinTeam: (team: TiagoTeamTask) => {
+        this.onJoinTeam(team);
+      },
+    })
+    .then(()=>{
+      console.log("init success")
+    })
+    .catch((err)=>{
       console.log(err);
       // NOTE: 一般情况不会出错，我们会对错误情况做监控，游戏可以处理一些异常情况下的表现
-    }
+    })
+
+    this.tiagoInited = true;
+    console.log("tiago init success.");
   }
 
   getConfig() {
